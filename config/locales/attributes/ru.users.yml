@@ -1,0 +1,11 @@
+ru:
+  activerecord:
+    attributes:
+      users:
+        id: Id
+        email: Почта
+        name: Имя
+        password: Пароль
+        avatar: Аватар
+        created_at: Дата создания
+        updated_at: Дата обновление

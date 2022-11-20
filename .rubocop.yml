@@ -1,0 +1,77 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rspec
+
+Rails:
+  Enabled: true
+
+Performance:
+  Enabled: true
+
+RSpec:
+  Enabled: true
+
+AllCops:
+  TargetRubyVersion: 3.1.2
+  NewCops: enable
+  Exclude:
+    - tmp/*
+    - bin/*
+    - db/schema.rb
+    - vendor/**/*
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 20
+  CountAsOne: [ 'array', 'heredoc', 'hash' ]
+
+Metrics/AbcSize:
+  Max: 25
+
+Metrics/BlockLength:
+  Max: 35
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*_spec.rb'
+    - 'config/environments/**/*'
+    - 'config/routes.rb'
+
+RSpec/VariableName:
+  AllowedPatterns:
+    - Authorization
+
+RSpec/AnyInstance:
+  Enabled: false
+
+Rails/BulkChangeTable:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 7
+
+Metrics/ClassLength:
+  Max: 200
+
+RSpec/SharedContext:
+  Exclude:
+    - spec/support/helpers/*
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - spec/requests/**/*
+
+RSpec/ExampleLength:
+  Exclude:
+    - spec/serializers/*
+
+RSpec/ScatteredSetup:
+  Exclude:
+    - spec/requests/**/*_spec.rb
+
+RSpec/NestedGroups:
+  Exclude:
+    - spec/forms/*

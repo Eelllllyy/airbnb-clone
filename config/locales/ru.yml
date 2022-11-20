@@ -1,0 +1,12 @@
+ru:
+  api:
+    base:
+      errors:
+        not_authorized: Нет разрешения!
+        refresh_expired: Срок действия сессии истек!
+    sessions:
+      errors:
+        wrong_params: Неверная почта или пароль!
+    stays:
+      errors:
+        not_found: Жилье не найдено!

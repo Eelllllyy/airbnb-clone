@@ -1,0 +1,16 @@
+ru:
+  activerecord:
+    attributes:
+      stays:
+        id: Id
+        email: Почта
+        name: Название
+        location: Место нахождения
+        date_from: Дата по
+        date_to: Дата с
+        price: цена
+        host_id: ID хозяина
+        host: Хозяин
+        photos: Фотографии
+        created_at: Дата создания
+        updated_at: Дата обновление

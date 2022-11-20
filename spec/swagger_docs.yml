@@ -1,0 +1,46 @@
+swagger.yaml:
+  openapi: 3.0.1
+  info:
+    title: API
+    version: 1.0
+    description: Описание запросов
+  paths: { }
+  schemes:
+    - http
+    - https
+  servers:
+    - url: http://localhost:{port}
+      description: Локальный сервер разработки
+      variables:
+        port:
+          default: 5100
+          description: Порт
+  components:
+    # Тело для запросов
+    schemas:
+      # Авторизация
+      auth:
+        type: object
+        properties:
+          login:
+            type: string
+            description: Логин
+            required: true
+          password:
+            type: string
+            description: Пароль
+            required: true
+    # Авторизация (Токен)
+    securitySchemes:
+      Bearer:
+        description: Токен пользователя
+        type: apiKey
+        name: Authorization
+        bearerFormat: JWT
+        in: header
+      Refresh:
+        description: Токен сброса
+        type: apiKey
+        name: X-Refresh-Token
+        bearerFormat: JWT
+        in: header
