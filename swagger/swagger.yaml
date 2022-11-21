@@ -20,12 +20,12 @@ paths:
               examples:
                 пользователя успешно получен:
                   value:
-                    id: 1
-                    avatar: 
-                    created_at: 2022-11-21 09:52:52 UTC
+                    id: 142
+                    avatar:
+                    created_at: 2022-11-21 19:21:07 UTC
                     email: MyString
                     name: MyString
-                    updated_at: 2022-11-21 09:52:52 UTC
+                    updated_at: 2022-11-21 19:21:07 UTC
                   summary: пользователя успешно получен
     delete:
       summary: Удаление сессии
@@ -66,6 +66,7 @@ paths:
               examples:
                 Список впечатлений получен:
                   value:
+<<<<<<< HEAD
                   - id: 1
                     created_at: 2022-11-21 09:52:53 UTC
                     host:
@@ -75,12 +76,28 @@ paths:
                       email: MyString
                       name: MyString
                       updated_at: 2022-11-21 09:52:53 UTC
+=======
+                  - id: 5
+                    created_at: 2022-11-21 19:21:07 UTC
+                    host:
+                      id: 144
+                      avatar:
+                      created_at: 2022-11-21 19:21:07 UTC
+                      email: MyString
+                      name: MyString
+                      updated_at: 2022-11-21 19:21:07 UTC
+>>>>>>> 835fb0b6a778ffc0a9c0fa8e9d43124a725ce47e
                     name: MyString
                     photos: []
                     price: MyString
                     rating: 1
+<<<<<<< HEAD
                     updated_at: 2022-11-21 09:52:53 UTC
                     video: 
+=======
+                    updated_at: 2022-11-21 19:21:07 UTC
+                    video:
+>>>>>>> 835fb0b6a778ffc0a9c0fa8e9d43124a725ce47e
                   summary: Список впечатлений получен
   "/api/session":
     post:
@@ -96,11 +113,19 @@ paths:
               examples:
                 Сессия создана:
                   value:
+<<<<<<< HEAD
                     csrf: Q6onQmMwt3HX3SdBruRJaBnJa3LXSYKGXFHkXd4qWANFi/U7Jv/JlOmj5Uywgn6V31egYNVEYE3XngCifxSkBA==
                     access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxMTA3NzQsInVzZXJfaWQiOjUsInVpZCI6Ijc0ZmRjYmJhLWYxMmUtNDYwMi1iYzA5LTNiYjk3OGNjMDViMiIsInJ1aWQiOiI2MDMwOTIxZS0zMTk0LTQ2OTUtOWZiNy1jYTY5Y2MyYTAzMzgifQ.taxVa3K0XpxLkzrh5Afkn3i5eZw4iS8_X98iLBf-aA4
                     access_expires_at: '2022-11-22T12:52:54.000+03:00'
                     refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzE2NTQxMjAsInVzZXJfaWQiOjUsInVpZCI6IjYwMzA5MjFlLTMxOTQtNDY5NS05ZmI3LWNhNjljYzJhMDMzOCJ9.GKJdQlCcgVxk8PtBlMHXEKlIBQmcyJOXnwy4NhD5mWI
                     refresh_expires_at: '2022-12-21T23:22:00.000+03:00'
+=======
+                    csrf: KlQgruccEXfWgHOiVfmeWrwe4fTH5b6TF7aCHr1zgrzScnNgpN3nlqcdWTLWt4jcHDwoCr3NgLt7z5QVp8MsfQ==
+                    access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxNDQ4NjcsInVzZXJfaWQiOjE0NiwidWlkIjoiMzRlMzg0N2ItYmQ4Zi00MzUzLTg5NzktZjdjNWQ5NWNjOTM0IiwicnVpZCI6IjY4NWQ2MWI0LWI4ZjItNGYzNC1hZThmLWNlOTJlMGUwMWYxZiJ9.ClhrJ6KtZGAGaVZ8aOfw2lmMl3cDL5XErzF-5hkuroM
+                    access_expires_at: '2022-11-22T22:21:07.000+03:00'
+                    refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzE2ODgyMTMsInVzZXJfaWQiOjE0NiwidWlkIjoiNjg1ZDYxYjQtYjhmMi00ZjM0LWFlOGYtY2U5MmUwZTAxZjFmIn0.srMBr-ck7wvXGWGQ17-vJ6JNnSPzojQsGWDhp1UkYO4
+                    refresh_expires_at: '2022-12-22T08:50:13.000+03:00'
+>>>>>>> 835fb0b6a778ffc0a9c0fa8e9d43124a725ce47e
                   summary: Сессия создана
         '422':
           description: Неверный пароль
@@ -135,9 +160,15 @@ paths:
               examples:
                 Токен сессии обновлен:
                   value:
+<<<<<<< HEAD
                     csrf: vvaq154hkRevJvpTldnHT288vzX+NoyCaHELkfLcBbRu0Gx864gouMlz5+oIvwVztsW5jPCqp6Y2tb3omF0EAQ==
                     access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxMTA3NzYsInVzZXJfaWQiOjcsInVpZCI6ImI3ZTM2ODc3LTgyMWMtNDY0MS1iMDkyLWJhOWVlYzgxZjAwNiJ9.S5pJ3hNu5RgG1bmQOJyCSX2HsjbD0QRoSn096vezYmk
                     access_expires_at: '2022-11-22T12:52:56.000+03:00'
+=======
+                    csrf: D2BjxXMZyu7baBggBq2FUcO0YO3mZv2RGgPSrHq7lMWVqs6l6srW8orYqkjWvXxMncNYs24liGYJ2h6UiGqlzg==
+                    access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxNDQ4NjcsInVzZXJfaWQiOjE0OCwidWlkIjoiODcwNzY4MmEtZTkxZS00OWYzLTljMGUtNGIwMmVkNmFkYzg2In0.HVLc1X8KGV1IDmBu4YwIKqTYcnt0wFltMcxUYUOWOOA
+                    access_expires_at: '2022-11-22T22:21:07.000+03:00'
+>>>>>>> 835fb0b6a778ffc0a9c0fa8e9d43124a725ce47e
                   summary: Токен сессии обновлен
         '403':
           description: Срок действия рефреш токена истек
@@ -178,16 +209,26 @@ paths:
               examples:
                 Список мест получен:
                   value:
+<<<<<<< HEAD
                   - id: 1
                     created_at: 2022-11-21 09:52:56 UTC
+=======
+                  - id: 33
+                    created_at: 2022-11-21 19:21:07 UTC
+>>>>>>> 835fb0b6a778ffc0a9c0fa8e9d43124a725ce47e
                     date_from: 2022-11-21 00:00:00 UTC
                     date_to: 2022-11-22 00:00:00 UTC
                     location: MyString
                     name: MyString
                     photos: []
                     price: MyString
+<<<<<<< HEAD
                     rating: 
                     updated_at: 2022-11-21 09:52:56 UTC
+=======
+                    rating:
+                    updated_at: 2022-11-21 19:21:07 UTC
+>>>>>>> 835fb0b6a778ffc0a9c0fa8e9d43124a725ce47e
                   summary: Список мест получен
   "/api/stays/{id}":
     parameters:
@@ -211,6 +252,7 @@ paths:
               examples:
                 Место получено:
                   value:
+<<<<<<< HEAD
                     id: 2
                     created_at: 2022-11-21 09:52:56 UTC
                     date_from: 2022-11-21 00:00:00 UTC
@@ -222,12 +264,30 @@ paths:
                       email: MyString
                       name: MyString
                       updated_at: 2022-11-21 09:52:56 UTC
+=======
+                    id: 34
+                    created_at: 2022-11-21 19:21:07 UTC
+                    date_from: 2022-11-21 00:00:00 UTC
+                    date_to: 2022-11-22 00:00:00 UTC
+                    host:
+                      id: 152
+                      avatar:
+                      created_at: 2022-11-21 19:21:07 UTC
+                      email: MyString
+                      name: MyString
+                      updated_at: 2022-11-21 19:21:07 UTC
+>>>>>>> 835fb0b6a778ffc0a9c0fa8e9d43124a725ce47e
                     location: MyString
                     name: MyString
                     photos: []
                     price: MyString
+<<<<<<< HEAD
                     rating: 
                     updated_at: 2022-11-21 09:52:56 UTC
+=======
+                    rating:
+                    updated_at: 2022-11-21 19:21:07 UTC
+>>>>>>> 835fb0b6a778ffc0a9c0fa8e9d43124a725ce47e
                   summary: Место получено
         '404':
           description: Место не найден
@@ -253,9 +313,9 @@ components:
     auth:
       type: object
       properties:
-        login:
+        email:
           type: string
-          description: Логин
+          description: Почта
           required: true
         password:
           type: string
