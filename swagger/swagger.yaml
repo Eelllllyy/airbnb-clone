@@ -4,7 +4,240 @@ info:
   title: API
   version: 1.0
   description: Описание запросов
-paths: {}
+paths:
+  "/api/client/session":
+    get:
+      summary: Получение текущего пользователя
+      tags:
+      - Пользователь - Сессия
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: пользователя успешно получен
+          content:
+            application/json:
+              examples:
+                пользователя успешно получен:
+                  value:
+                    id: 1
+                    avatar: 
+                    created_at: 2022-11-21 09:52:52 UTC
+                    email: MyString
+                    name: MyString
+                    updated_at: 2022-11-21 09:52:52 UTC
+                  summary: пользователя успешно получен
+    delete:
+      summary: Удаление сессии
+      tags:
+      - Пользователь - Сессия
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: сессия удалена
+  "/api/experiences":
+    get:
+      summary: Получить список впечатлений
+      tags:
+      - Впечатления
+      security:
+      - Bearer: {}
+      parameters:
+      - name: search
+        in: query
+        required: false
+        description: 'Поиск по полям: name'
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: Номер нужной страници
+      - name: items
+        in: query
+        required: false
+        description: Кол-во элементов отображаемых на странице
+      responses:
+        '200':
+          description: Список впечатлений получен
+          content:
+            application/json:
+              examples:
+                Список впечатлений получен:
+                  value:
+                  - id: 1
+                    created_at: 2022-11-21 09:52:53 UTC
+                    host:
+                      id: 3
+                      avatar: 
+                      created_at: 2022-11-21 09:52:53 UTC
+                      email: MyString
+                      name: MyString
+                      updated_at: 2022-11-21 09:52:53 UTC
+                    name: MyString
+                    photos: []
+                    price: MyString
+                    rating: 1
+                    updated_at: 2022-11-21 09:52:53 UTC
+                    video: 
+                  summary: Список впечатлений получен
+  "/api/session":
+    post:
+      summary: Создать сессию
+      tags:
+      - Сессия
+      parameters: []
+      responses:
+        '200':
+          description: Сессия создана
+          content:
+            application/json:
+              examples:
+                Сессия создана:
+                  value:
+                    csrf: Q6onQmMwt3HX3SdBruRJaBnJa3LXSYKGXFHkXd4qWANFi/U7Jv/JlOmj5Uywgn6V31egYNVEYE3XngCifxSkBA==
+                    access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxMTA3NzQsInVzZXJfaWQiOjUsInVpZCI6Ijc0ZmRjYmJhLWYxMmUtNDYwMi1iYzA5LTNiYjk3OGNjMDViMiIsInJ1aWQiOiI2MDMwOTIxZS0zMTk0LTQ2OTUtOWZiNy1jYTY5Y2MyYTAzMzgifQ.taxVa3K0XpxLkzrh5Afkn3i5eZw4iS8_X98iLBf-aA4
+                    access_expires_at: '2022-11-22T12:52:54.000+03:00'
+                    refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzE2NTQxMjAsInVzZXJfaWQiOjUsInVpZCI6IjYwMzA5MjFlLTMxOTQtNDY5NS05ZmI3LWNhNjljYzJhMDMzOCJ9.GKJdQlCcgVxk8PtBlMHXEKlIBQmcyJOXnwy4NhD5mWI
+                    refresh_expires_at: '2022-12-21T23:22:00.000+03:00'
+                  summary: Сессия создана
+        '422':
+          description: Неверный пароль
+          content:
+            application/json:
+              examples:
+                Неверный пароль:
+                  value:
+                    error: Неверная почта или пароль!
+                  summary: Неверный пароль
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/auth"
+    put:
+      summary: Обновить токен
+      tags:
+      - Сессия
+      parameters:
+      - in: header
+        name: X-Refresh-Token
+        required: true
+        description: Рефрешь токен
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Токен сессии обновлен
+          content:
+            application/json:
+              examples:
+                Токен сессии обновлен:
+                  value:
+                    csrf: vvaq154hkRevJvpTldnHT288vzX+NoyCaHELkfLcBbRu0Gx864gouMlz5+oIvwVztsW5jPCqp6Y2tb3omF0EAQ==
+                    access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxMTA3NzYsInVzZXJfaWQiOjcsInVpZCI6ImI3ZTM2ODc3LTgyMWMtNDY0MS1iMDkyLWJhOWVlYzgxZjAwNiJ9.S5pJ3hNu5RgG1bmQOJyCSX2HsjbD0QRoSn096vezYmk
+                    access_expires_at: '2022-11-22T12:52:56.000+03:00'
+                  summary: Токен сессии обновлен
+        '403':
+          description: Срок действия рефреш токена истек
+          content:
+            application/json:
+              examples:
+                Срок действия рефреш токена истек:
+                  value:
+                    error: Срок действия сессии истек!
+                  summary: Срок действия рефреш токена истек
+  "/api/stays":
+    get:
+      summary: Получить список мест
+      tags:
+      - Места
+      security:
+      - Bearer: {}
+      parameters:
+      - name: search
+        in: query
+        required: false
+        description: Поиск по полю name
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: false
+        description: Номер нужной страници
+      - name: items
+        in: query
+        required: false
+        description: Кол-во элементов отображаемых на странице
+      responses:
+        '200':
+          description: Список мест получен
+          content:
+            application/json:
+              examples:
+                Список мест получен:
+                  value:
+                  - id: 1
+                    created_at: 2022-11-21 09:52:56 UTC
+                    date_from: 2022-11-21 00:00:00 UTC
+                    date_to: 2022-11-22 00:00:00 UTC
+                    location: MyString
+                    name: MyString
+                    photos: []
+                    price: MyString
+                    rating: 
+                    updated_at: 2022-11-21 09:52:56 UTC
+                  summary: Список мест получен
+  "/api/stays/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: ID места
+      schema:
+        type: string
+    get:
+      summary: Получить место
+      tags:
+      - Места
+      security:
+      - Bearer: {}
+      responses:
+        '200':
+          description: Место получено
+          content:
+            application/json:
+              examples:
+                Место получено:
+                  value:
+                    id: 2
+                    created_at: 2022-11-21 09:52:56 UTC
+                    date_from: 2022-11-21 00:00:00 UTC
+                    date_to: 2022-11-22 00:00:00 UTC
+                    host:
+                      id: 11
+                      avatar: 
+                      created_at: 2022-11-21 09:52:56 UTC
+                      email: MyString
+                      name: MyString
+                      updated_at: 2022-11-21 09:52:56 UTC
+                    location: MyString
+                    name: MyString
+                    photos: []
+                    price: MyString
+                    rating: 
+                    updated_at: 2022-11-21 09:52:56 UTC
+                  summary: Место получено
+        '404':
+          description: Место не найден
+          content:
+            application/json:
+              examples:
+                Место не найден:
+                  value:
+                    error: Жилье не найдено!
+                  summary: Место не найден
 schemes:
 - http
 - https
