@@ -22,9 +22,9 @@ swagger.yaml:
       auth:
         type: object
         properties:
-          login:
+          email:
             type: string
-            description: Логин
+            description: Почта
             required: true
           password:
             type: string
