@@ -7,4 +7,8 @@ class UserSerializer < BaseSerializer
   field :avatar do |obj|
     FileSerializer.render_as_hash(obj.avatar) if obj.avatar.attached?
   end
+
+  view :with_errors do
+    association :errors, blueprint: ErrorSerializer
+  end
 end

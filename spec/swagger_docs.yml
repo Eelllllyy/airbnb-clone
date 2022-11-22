@@ -30,6 +30,22 @@ swagger.yaml:
             type: string
             description: Пароль
             required: true
+      # Регистрация
+      registration:
+        type: object
+        properties:
+          name:
+            type: string
+            description: Имя
+            required: true
+          email:
+            type: string
+            description: Почта
+            required: true
+          password:
+            type: string
+            description: Пароль
+            required: true
     # Авторизация (Токен)
     securitySchemes:
       Bearer:

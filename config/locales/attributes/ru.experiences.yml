@@ -8,6 +8,7 @@ ru:
         host_id: ID хозяина
         host: Хозяин
         photos: Фотографии
+        rating: Рейтинг
         video: Видео
         created_at: Дата создания
         updated_at: Дата обновление

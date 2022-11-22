@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :stays, only: %i[index show]
     resources :experiences, only: :index
     resource :session, only: %i[create update]
+    resource :registration, only: :create
   end
 
   # Defines the root path route ("/")

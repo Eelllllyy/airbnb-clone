@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    attributes:
+      stays:
+        id: Id
+        name: Name
+        price: Price
+        host_id: Host id
+        host: Host
+        photos: Photos
+        rating: Rating
+        video: Video
+        created_at: Created at
+        updated_at: Updated at
