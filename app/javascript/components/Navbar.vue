@@ -42,9 +42,8 @@
     </transition>
 
     <transition name="fade">
-      <div v-if="storeAuth.logOutOpen" class="open-action">
-        <p class="pointer" @click="toExit">Log out</p>
-        <p @click="showSignUp" class="pointer">Sign up</p>
+      <div v-if="storeAuth.logOutOpen" class="open-action" style="height: 60px;">
+        <p class="pointer" style="margin:0 0 0 15px" @click="toExit">Log out</p>
       </div>
     </transition>
 
@@ -188,7 +187,7 @@ export default {
   position: relative;
   display: flex;
   justify-content: space-between;
-   
+  cursor: pointer;
 } 
 .block-svg{
   background-image: url('../../../assets/img/block.svg');
@@ -197,7 +196,7 @@ export default {
   position: absolute;
   top:14px;
   left:10px;
-  cursor: pointer;
+
 }
 .user-image{
   background-image: url('../../../assets/img/userImage.svg');
@@ -262,6 +261,20 @@ label{
   box-shadow: 0px 2px 7px rgba(119, 119, 119, 0.411);
   /* border:1px solid rgba(88, 88, 88, 0.308) */
 }
+/* .open-action-logout{
+  position: fixed;
+  top:70px;
+  right:45px;
+  z-index: 10;
+  width: 187px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: white;
+  box-shadow: 0px 2px 7px rgba(119, 119, 119, 0.411);
+} */
 /* .darkBlock{
   background: rgba(0, 0, 0, 0.5);
 } */

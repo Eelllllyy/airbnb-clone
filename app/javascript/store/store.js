@@ -34,6 +34,7 @@ async handleSubmit(){
 
     VueCookies.set('token', response.data.access, 60, null, null, true)
     this.email='';
+    this.error= ''
     this.password='';
     this.dialogLogin = false;
     this.isAuth = true
