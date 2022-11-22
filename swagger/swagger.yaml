@@ -20,12 +20,12 @@ paths:
               examples:
                 пользователя успешно получен:
                   value:
-                    id: 142
+                    id: 83
                     avatar:
-                    created_at: 2022-11-21 19:21:07 UTC
-                    email: MyString
-                    name: MyString
-                    updated_at: 2022-11-21 19:21:07 UTC
+                    created_at: 2022-11-22 09:52:12 UTC
+                    email: marquis@prosacco-mcclure.org
+                    name: Shena Yost
+                    updated_at: 2022-11-22 09:52:12 UTC
                   summary: пользователя успешно получен
     delete:
       summary: Удаление сессии
@@ -66,22 +66,75 @@ paths:
               examples:
                 Список впечатлений получен:
                   value:
-                  - id: 5
-                    created_at: 2022-11-21 19:21:07 UTC
+                  - id: 8
+                    created_at: 2022-11-22 09:52:12 UTC
                     host:
-                      id: 144
+                      id: 85
                       avatar:
-                      created_at: 2022-11-21 19:21:07 UTC
-                      email: MyString
-                      name: MyString
-                      updated_at: 2022-11-21 19:21:07 UTC
+                      created_at: 2022-11-22 09:52:12 UTC
+                      email: angelyn@rau-kerluke.info
+                      name: Floyd Block
+                      updated_at: 2022-11-22 09:52:12 UTC
                     name: MyString
                     photos: []
                     price: MyString
                     rating: 1
-                    updated_at: 2022-11-21 19:21:07 UTC
+                    updated_at: 2022-11-22 09:52:12 UTC
                     video:
                   summary: Список впечатлений получен
+  "/api/registration":
+    post:
+      summary: Зарегистрироваться
+      tags:
+      - Регистрация
+      parameters: []
+      responses:
+        '201':
+          description: Пользователь создан
+          content:
+            application/json:
+              examples:
+                Пользователь создан:
+                  value:
+                    id: 87
+                    avatar:
+                    created_at: 2022-11-22 09:52:12 UTC
+                    email: test@test.test
+                    errors:
+                      full_messages: []
+                      messages: {}
+                    name: Test
+                    updated_at: 2022-11-22 09:52:12 UTC
+                  summary: Пользователь создан
+        '422':
+          description: Ошибка при регистрации
+          content:
+            application/json:
+              examples:
+                Пользователь уже существует:
+                  value:
+                    error: User with this email already exists!
+                  summary: Пользователь уже существует
+                Ошибка при регистрации:
+                  value:
+                    id:
+                    avatar:
+                    created_at:
+                    email:
+                    errors:
+                      full_messages:
+                      - Email can't be blank
+                      messages:
+                        email:
+                        - can't be blank
+                    name: Test
+                    updated_at:
+                  summary: Ошибка при регистрации
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/registration"
   "/api/session":
     post:
       summary: Создать сессию
@@ -96,11 +149,11 @@ paths:
               examples:
                 Сессия создана:
                   value:
-                    csrf: KlQgruccEXfWgHOiVfmeWrwe4fTH5b6TF7aCHr1zgrzScnNgpN3nlqcdWTLWt4jcHDwoCr3NgLt7z5QVp8MsfQ==
-                    access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxNDQ4NjcsInVzZXJfaWQiOjE0NiwidWlkIjoiMzRlMzg0N2ItYmQ4Zi00MzUzLTg5NzktZjdjNWQ5NWNjOTM0IiwicnVpZCI6IjY4NWQ2MWI0LWI4ZjItNGYzNC1hZThmLWNlOTJlMGUwMWYxZiJ9.ClhrJ6KtZGAGaVZ8aOfw2lmMl3cDL5XErzF-5hkuroM
-                    access_expires_at: '2022-11-22T22:21:07.000+03:00'
-                    refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzE2ODgyMTMsInVzZXJfaWQiOjE0NiwidWlkIjoiNjg1ZDYxYjQtYjhmMi00ZjM0LWFlOGYtY2U5MmUwZTAxZjFmIn0.srMBr-ck7wvXGWGQ17-vJ6JNnSPzojQsGWDhp1UkYO4
-                    refresh_expires_at: '2022-12-22T08:50:13.000+03:00'
+                    csrf: PLImDvSuG152kbKe37Td7TgqEHOk2IzU2GYWvS4QYpv7CtY+811JFGMG4eajFX7tdc81S6Ri8zAOBy/NTmZR0A==
+                    access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxOTcxMzIsInVzZXJfaWQiOjg5LCJ1aWQiOiIzY2FkMTQ0Ni0zNWY4LTRhNTgtOGNlMC1iNTc5YTRmZjczMTciLCJydWlkIjoiZjIyZWVhMzQtNDQ2ZC00MmY1LWI3N2UtOGVmNzE4N2I4ZGVjIn0.vKA_W8_P5RdpJK9dMc1JGcawlhBXZcjEuHbn6p7Bdk0
+                    access_expires_at: '2022-11-23T12:52:12.000+03:00'
+                    refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzE3NDA0NzgsInVzZXJfaWQiOjg5LCJ1aWQiOiJmMjJlZWEzNC00NDZkLTQyZjUtYjc3ZS04ZWY3MTg3YjhkZWMifQ.mudi-4KoNfp2iO7u0KHv-fvIwiwqln2oKbsIOsO3SOw
+                    refresh_expires_at: '2022-12-22T23:21:18.000+03:00'
                   summary: Сессия создана
         '422':
           description: Неверный пароль
@@ -109,7 +162,7 @@ paths:
               examples:
                 Неверный пароль:
                   value:
-                    error: Неверная почта или пароль!
+                    error: Invalid email or password!
                   summary: Неверный пароль
       requestBody:
         content:
@@ -135,9 +188,9 @@ paths:
               examples:
                 Токен сессии обновлен:
                   value:
-                    csrf: D2BjxXMZyu7baBggBq2FUcO0YO3mZv2RGgPSrHq7lMWVqs6l6srW8orYqkjWvXxMncNYs24liGYJ2h6UiGqlzg==
-                    access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxNDQ4NjcsInVzZXJfaWQiOjE0OCwidWlkIjoiODcwNzY4MmEtZTkxZS00OWYzLTljMGUtNGIwMmVkNmFkYzg2In0.HVLc1X8KGV1IDmBu4YwIKqTYcnt0wFltMcxUYUOWOOA
-                    access_expires_at: '2022-11-22T22:21:07.000+03:00'
+                    csrf: v4w0s7f5Alj2PGq095mkdFBHLQ1eKO4rPQ/BUTrkzbpwgJvg8WFipcRn0KV+D5oOozeNru9/ovx6WPixkvxktg==
+                    access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxOTcxMzIsInVzZXJfaWQiOjkxLCJ1aWQiOiI4Nzg1NGY1Ny1jYzNjLTQwMDctOTk1NS04MTdjMDY3ODI1ZjkifQ.EmP-oaJJoBkQ4X-P9BzK6bqUF_m9zB4sEaSzkPLeQT8
+                    access_expires_at: '2022-11-23T12:52:12.000+03:00'
                   summary: Токен сессии обновлен
         '403':
           description: Срок действия рефреш токена истек
@@ -146,7 +199,7 @@ paths:
               examples:
                 Срок действия рефреш токена истек:
                   value:
-                    error: Срок действия сессии истек!
+                    error: Session expired!
                   summary: Срок действия рефреш токена истек
   "/api/stays":
     get:
@@ -178,8 +231,8 @@ paths:
               examples:
                 Список мест получен:
                   value:
-                  - id: 33
-                    created_at: 2022-11-21 19:21:07 UTC
+                  - id: 11
+                    created_at: 2022-11-22 09:52:12 UTC
                     date_from: 2022-11-21 00:00:00 UTC
                     date_to: 2022-11-22 00:00:00 UTC
                     location: MyString
@@ -187,7 +240,7 @@ paths:
                     photos: []
                     price: MyString
                     rating:
-                    updated_at: 2022-11-21 19:21:07 UTC
+                    updated_at: 2022-11-22 09:52:12 UTC
                   summary: Список мест получен
   "/api/stays/{id}":
     parameters:
@@ -211,23 +264,23 @@ paths:
               examples:
                 Место получено:
                   value:
-                    id: 34
-                    created_at: 2022-11-21 19:21:07 UTC
+                    id: 12
+                    created_at: 2022-11-22 09:52:12 UTC
                     date_from: 2022-11-21 00:00:00 UTC
                     date_to: 2022-11-22 00:00:00 UTC
                     host:
-                      id: 152
+                      id: 95
                       avatar:
-                      created_at: 2022-11-21 19:21:07 UTC
-                      email: MyString
-                      name: MyString
-                      updated_at: 2022-11-21 19:21:07 UTC
+                      created_at: 2022-11-22 09:52:12 UTC
+                      email: shanel@herzog.com
+                      name: Salvador Mueller
+                      updated_at: 2022-11-22 09:52:12 UTC
                     location: MyString
                     name: MyString
                     photos: []
                     price: MyString
                     rating:
-                    updated_at: 2022-11-21 19:21:07 UTC
+                    updated_at: 2022-11-22 09:52:12 UTC
                   summary: Место получено
         '404':
           description: Место не найден
@@ -236,7 +289,7 @@ paths:
               examples:
                 Место не найден:
                   value:
-                    error: Жилье не найдено!
+                    error: Stays not found!
                   summary: Место не найден
 schemes:
 - http
@@ -253,6 +306,21 @@ components:
     auth:
       type: object
       properties:
+        email:
+          type: string
+          description: Почта
+          required: true
+        password:
+          type: string
+          description: Пароль
+          required: true
+    registration:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Имя
+          required: true
         email:
           type: string
           description: Почта
