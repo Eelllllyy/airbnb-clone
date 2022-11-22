@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    attributes:
+      users:
+        id: Id
+        email: Email
+        name: Name
+        password: Password
+        avatar: Avatar
+        created_at: Created at
+        updated_at: Updated at

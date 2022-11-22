@@ -7,6 +7,13 @@ ru:
     sessions:
       errors:
         wrong_params: Неверная почта или пароль!
+    registrations:
+      errors:
+        email_already_exists: Пользователь с такой почтой уже существует
     stays:
       errors:
         not_found: Жилье не найдено!
+  mailers:
+    user_mailer:
+      registration:
+        subject: Регистрация
