@@ -36,6 +36,7 @@ async handleSubmit(){
     this.email='';
     this.error= ''
     this.password='';
+    this.passwordRepeat=''
     this.dialogLogin = false;
     this.isAuth = true
             

@@ -9,15 +9,15 @@
     <div class='block-three'></div>
       <div class="block-two" >
         <h2 style="margin-bottom:20px">Welcome to Airbnb</h2>
-        <div class="input-content " @click="moveLabelforEmail">
+        <div class="input-content " @click="moveLabelforEmail" @keyup="moveLabelforEmail">
           <label class="label email">Email</label>
           <input v-model="storeAuth.email" class="input one"/> 
         </div>
-        <div class="input-content" @click="moveLabelforName">
+        <div class="input-content" @click="moveLabelforName" @keyup="moveLabelforName">
           <label class="label name">Name</label>
           <input v-model="storeAuth.name" class="input"/>
         </div>
-        <div class="input-content" @click="moveLabelforPassword">
+        <div class="input-content" @click="moveLabelforPassword" @keyup="moveLabelforPassword">
           <label class="label password">Password</label>
           <input v-model="storeAuth.password" type="password" class="input two"/>
         </div> 

@@ -30,8 +30,8 @@
     </transition>
 
 
-    <div class="navigation-menu">
-      <div class="block-svg" @click="loginOpen"></div>
+    <div class="navigation-menu" @click="loginOpen">
+      <div class="block-svg" ></div>
       <div class="user-image"></div>
     </div>
     <transition name="fade">
