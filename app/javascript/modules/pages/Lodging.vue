@@ -55,10 +55,6 @@
   margin:10px 0;
   /* word-spacing: 3px; */
 }
-.plDec-one{
- 
-
-}
 h4 , p, .star , .share , .like, .img-1 ,.img-2 , .img-3 , .img-4, .img-5{
   display: inline-block;
 }

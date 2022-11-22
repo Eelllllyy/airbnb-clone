@@ -8,10 +8,10 @@
       <button class="btn" >Search</button>
     </div>
     <transition name="bounce">
-      <div class="search-block" v-if="storeAuth.searchOpen == true">
+      <div class="search-block" v-if="storeAuth.searchOpen">
         <div class="search-name">
           <p style="border-bottom:2px solid black"> Stays</p>
-          <p  @click.stop="searchClose">Experiences</p>
+          <p>Experiences</p>
         </div>
         <div>
           <div class="block-for-input">
