@@ -40,7 +40,14 @@
         <p @click="showSignUp" class="pointer">Sign up</p>
       </div>
     </transition>
-            
+
+    <transition name="fade">
+      <div v-if="storeAuth.logOutOpen" class="open-action">
+        <p class="pointer" @click="toExit">Log out</p>
+        <p @click="showSignUp" class="pointer">Sign up</p>
+      </div>
+    </transition>
+
   </div>
   <div :class="{darkBlock: ( storeAuth.dialogLogin || storeAuth.dialogSignUp)}">
     <transition name="fade">
@@ -69,17 +76,28 @@ const searchClose = () => {
   storeAuth.searchOpen = false
 }
 const loginOpen = () => {
-  storeAuth.loginOpen = !storeAuth.loginOpen
+  if (storeAuth.isAuth == false){
+    storeAuth.loginOpen = !storeAuth.loginOpen
+  }
+  if (storeAuth.isAuth) {
+    storeAuth.logOutOpen = !storeAuth.logOutOpen
+  }
 }
 const showLogin = () => {
   storeAuth.loginOpen = false
+  storeAuth.logOutOpen = false
   storeAuth.dialogLogin = true
   storeAuth.dialogSignUp = false
 }
 const showSignUp = () => {
   storeAuth.loginOpen = false
+  storeAuth.logOutOpen = false
   storeAuth.dialogSignUp = true
   storeAuth.dialogLogin = false
+}
+const toExit = () => {
+  storeAuth.logOutOpen = false
+  storeAuth.deleteSession()
 }
 </script>
 <script>

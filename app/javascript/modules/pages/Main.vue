@@ -8,8 +8,10 @@ const storeAuth = useStoreAuth()
 const searchClose = () => {
     storeAuth.searchOpen = false
     storeAuth.loginOpen = false
+    storeAuth.logOutOpen = false
     storeAuth.dialogLogin = false
     storeAuth.dialogSignUp = false
+
     setTimeout(() => storeAuth.searchClose = true, 1000)
 }
 </script>

@@ -8,7 +8,8 @@ state: () => ({
   email:'',
   password:'',
   error:'',
-  token:'',
+  token:null,
+  isAuth:false,
   name:'',
   passwordRepeat:'',
 
@@ -16,6 +17,7 @@ state: () => ({
   searchOpen: false,
   searchClose:true,
   loginOpen:false,
+  logOutOpen:false,
   dialogLogin:false,
   dialogSignUp:false
 
@@ -34,6 +36,7 @@ async handleSubmit(){
     this.email='';
     this.password='';
     this.dialogLogin = false;
+    this.isAuth = true
             
   }
     
@@ -59,6 +62,21 @@ async createUser() {
     this.error = response.data.error
   }
 },
+async deleteSession () {
+  try{
+    const response = await axios.delete('/api/client/session',{
+      headers: {
+        Authorization: VueCookies.get('token'),
+      },
+    })
+    this.token = null
+    this.isAuth = false
+    VueCookies.remove('token')
+  }catch(e){
+    console.error(e)
+  }
+}
+
 }
 })
 
