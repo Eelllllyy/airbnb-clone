@@ -1,26 +1,29 @@
 <template>
-  <div class="wrapper" @click="searchClose" :class="{darkBlock: storeAuth.searchOpen}">
-  </div>
+  <div
+    class="wrapper"
+    :class="{ darkBlock: storeAuth.searchOpen }"
+    @click="searchClose"
+  />
 </template>
 <script setup>
-import {useStoreAuth} from '@/store/store'
+import { useStoreAuth } from '@/store/store'
 const storeAuth = useStoreAuth()
 const searchClose = () => {
-    storeAuth.searchOpen = false
-    storeAuth.loginOpen = false
-    storeAuth.logOutOpen = false
-    storeAuth.dialogLogin = false
-    storeAuth.dialogSignUp = false
+  storeAuth.searchOpen = false
+  storeAuth.loginOpen = false
+  storeAuth.logOutOpen = false
+  storeAuth.dialogLogin = false
+  storeAuth.dialogSignUp = false
 
-    setTimeout(() => storeAuth.searchClose = true, 1000)
+  setTimeout(() => (storeAuth.searchClose = true), 1000)
 }
 </script>
 <style scoped>
-.wrapper{
+.wrapper {
   width: 100%;
   height: 600px;
 }
-.darkBlock{
+.darkBlock {
   background: rgba(0, 0, 0, 0.315);
   z-index: 30;
 }
