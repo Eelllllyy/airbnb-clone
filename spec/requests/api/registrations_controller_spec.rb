@@ -23,8 +23,9 @@ RSpec.describe Api::RegistrationsController do
         run_test! do
           body = JSON.parse(response.body, symbolize_names: true)
 
-          expect(body[:name]).to eq(registration[:name])
-          expect(body[:email]).to eq(registration[:email])
+          %i[csrf access access_expires_at refresh refresh_expires_at].each do |k|
+            expect(body).to have_key(k)
+          end
         end
       end
 

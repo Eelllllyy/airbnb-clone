@@ -6,7 +6,6 @@ class BaseSerializer < Blueprinter::Base
   field :created_at
   field :updated_at
 
-  # Исключает лишние поля для отображения
   view :excludes_base do
     excludes :errors, :created_at, :updated_at
   end

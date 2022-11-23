@@ -8,8 +8,14 @@ module Api
 
       user = User.new(registrations_params)
       status = user.save ? :created : :unprocessable_entity
-      UserMailer.with(user:).registration.deliver_later if status == :created
-      render json: UserSerializer.render(user, view: :with_errors), status:
+      if status == :created
+        UserMailer.with(user:).registration.deliver_later
+        payload = { user_id: user.id }
+        session = JWTSessions::Session.new(payload:, refresh_payload: payload, refresh_by_access_allowed: true)
+        render json: session.login, status:
+      else
+        render json: UserSerializer.render(user, view: :with_errors), status:
+      end
     end
 
     private
