@@ -375,7 +375,7 @@ width: 50%;
   width: 24px;
   height: 24px;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
 }
 .icon-2{
@@ -383,7 +383,7 @@ width: 50%;
   width: 24px;
   height: 24px;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
 }
 .icon-3{
@@ -391,7 +391,7 @@ width: 50%;
   width: 24px;
   height: 24px;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
 }
 .icon-4{
@@ -399,7 +399,7 @@ width: 50%;
   width: 24px;
   height: 24px;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
 }
 .icon-5{
@@ -407,7 +407,7 @@ width: 50%;
   width: 24px;
   height: 24px;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
 }
 .icon-6{
@@ -415,7 +415,7 @@ width: 50%;
   width: 24px;
   height: 24px;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
 }
 .icon-7{
@@ -423,7 +423,7 @@ width: 50%;
   width: 24px;
   height: 24px;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
 }
 .icon-8{
@@ -431,7 +431,7 @@ width: 50%;
   width: 24px;
   height: 24px;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
 }
 .icon-9{
@@ -439,7 +439,7 @@ width: 50%;
   width: 24px;
   height: 24px;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
 }
 .icon-10{
@@ -447,7 +447,7 @@ width: 50%;
   width: 24px;
   height: 24px;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
 }
 .btn{
@@ -466,7 +466,7 @@ width: 50%;
 }
 .text-gray{
   color: #717171;
-  padding-top:8px ;
+  padding-top: 8px ;
 }
 .line-through{
   text-decoration: line-through;
@@ -482,17 +482,17 @@ width: 50%;
   width: 100%;
   height: 100%;
   top: 139px;
-  left:0;
+  left: 0;
   z-index: 100;
 }
 .padding-left{
-  padding-left:10px
+  padding-left: 10px
 }
 .padding-top-right{
-  padding:0 12px;
+  padding: 0 12px;
 }
 .padding-right{
-  padding-right:8px
+  padding-right: 8px
 }
 
 </style>

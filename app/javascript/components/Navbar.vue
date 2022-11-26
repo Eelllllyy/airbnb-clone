@@ -297,7 +297,7 @@ const closeDialogWindow = () => {
   right: 45px;
   z-index: 10;
   width: 187px;
-  height: 106px;
+  height: 112px;
   border-radius: 16px;
   display: flex;
   flex-direction: column;

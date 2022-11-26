@@ -24,13 +24,13 @@
             :card="card"
           />
         </div>
-        <infinite-loading
-          target="#container"
-          @infinite="load"
-        />
       </div>
-      <button @click="storeImages.loadMoreImages">
-        lzlzlz
+      <button
+        v-if="storeImages.page < storeImages.totalPages"
+        class="btn-show-more"
+        @click="storeImages.loadMoreCards"
+      >
+        <b>Show More</b>
       </button>
       <Footer />
     </main> 
@@ -42,7 +42,6 @@ import { useRouter, useRoute } from 'vue-router'
 import Footer from '@/components/Footer.vue'
 import OneCard from '@/components/OneCard.vue'
 import Navbar from '@/components/Navbar.vue';
-import InfiniteLoading from "v3-infinite-loading";
 import { ref, onMounted, watch } from 'vue';
 
 const storeAuth = useStoreAuth()
@@ -60,13 +59,11 @@ const searchClose = () => {
   setTimeout(() => (storeAuth.searchClose = true), 1000)
 }
 
-const getCards = onMounted(async () => {
-  await storeImages.getCards()
+const getCards = onMounted( () => {
+   storeImages.getCards()
 })
 
-const load = () => {
-  storeImages.loadMoreCards()
-}
+
 const goToStay = (id) => {
   router.push(`/stays/${id}`)
 }
@@ -92,7 +89,7 @@ const goToStay = (id) => {
   width: 100%;
   height: 100%;
   top: 139px;
-  left:0;
+  left: 0;
   z-index: 100;
 }
 .card-with-photo {
@@ -113,5 +110,16 @@ const goToStay = (id) => {
   position: fixed;
   z-index: 1000;
   width: 100%;
+}
+.btn-show-more{
+  background: linear-gradient(90deg, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
+  border-radius: 25px;
+  border: none;
+  padding: 20px 10px;
+  color: white;
+  cursor: pointer;
+  margin:0 auto;
+  display: block;
+  
 }
 </style>

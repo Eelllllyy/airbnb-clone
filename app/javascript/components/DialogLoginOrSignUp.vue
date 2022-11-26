@@ -95,9 +95,9 @@
             <div v-if="(storeAuth.dialogLogin === true && storeAuth.dialogSignUp === false) ">
               <p class="privacy-policy">
                 We’ll call or text you to confirm your number. Standard message and data rates apply.
-              </p><h5 class="text-underline">
-                Privacy Policy
-              </h5>
+                <b class="text-underline">
+                  Privacy Policy
+                </b>
               </p>
             </div>
             <div>
@@ -189,7 +189,7 @@ const closeAndReset = () => {
   top: 11px;
   left: 19px;
   cursor: pointer;
-  border:none;
+  border: none;
   background-color: white;
 }
 .block-for-text{
@@ -215,7 +215,7 @@ const closeAndReset = () => {
 .border-radius-bottom {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  margin-bottom:20px
+  margin-bottom: 20px
 }
 .btn{
   width: 100%;
@@ -263,7 +263,7 @@ const closeAndReset = () => {
   display: inline;
 }
 .greetings{
-  margin-bottom:20px
+  margin-bottom: 20px
 }
 
 </style>

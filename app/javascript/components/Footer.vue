@@ -39,7 +39,7 @@
 .footer{
   display: block !important ;
   position: sticky;
-  bottom:0;
+  bottom: 0;
   z-index: 0;
   background-color: white;
 }
@@ -51,13 +51,13 @@
   flex-direction: row;
   padding: 20px 0;
   width: 95%;
-  margin:0 auto;
+  margin: 0 auto;
 }
 p{
   display: inline;
 }
 .dats{
-  margin:0 7px;
+  margin: 0 7px;
 }
 .lang-cont{
   position: relative;
@@ -68,9 +68,9 @@ p{
   height: 16px;
   display: inline-block;
   position: absolute;
-  left:0;
+  left: 0;
 }
 .unvis{
-  padding:0 25px
+  padding: 0 25px
 }
 </style>

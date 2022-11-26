@@ -1,51 +1,51 @@
 <template>
   <div>
-    <img
-      class="img"
-      :src="card.photos[indexCount].url"
-      alt="avatar"
-    >
+      <img
+        class="img"
+        :src="card.photos[indexCount].url"
+        alt="avatar"
+      >
   </div>
   <div class="rating">
-    <h5>{{ card?.location }}</h5>
-    <div>
-      <div class="star-mini" />
-      <h5>{{ card.rating }}</h5>
-    </div>
+      <h5>{{ card?.location }}</h5>
+      <div>
+        <div class="star-mini" />
+        <h5>{{ card.rating }}</h5>
+      </div>
   </div>
-  <p class="gray-text">
-    Added 10 weeks ago
-  </p>
-  <p class="gray-text">
-    Apr 2 – 7
-  </p>
-  <h5>{{ card?.price }} night</h5>
-  <button
-    v-if="indexCount < (card.photos.length -1)"
-    class="btn plus"
-    @click.stop="increaseIndex"
-  >
+    <p class="gray-text">
+      Added 10 weeks ago
+    </p>
+    <p class="gray-text">
+      Apr 2 – 7
+    </p>
+    <h5>{{ card?.price }} night</h5>
+    <button
+      v-if="indexCount < (card.photos.length -1)"
+      class="btn plus"
+      @click.stop="increaseIndex"
     >
-  </button>
-  <button
-    v-if="indexCount > 0"
-    class="btn minus"
-    @click.stop="decreaseIndex"
-  >
-    &lt
-  </button>
-  <div class="like-stay" />
-  <div class="fix-dots">
-    <div
-      v-for="len in card.photos.length"
-      class="dots-cont"
+      >
+    </button>
+    <button
+      v-if="indexCount > 0"
+      class="btn minus"
+      @click.stop="decreaseIndex"
     >
-      <button
-        class="dots"
-        :class="{'current-photo': (indexCount + 1) === len}"
-      />
+      &lt
+    </button>
+    <div class="like-stay" />
+    <div class="fix-dots">
+      <div
+        v-for="len in card.photos.length"
+        class="dots-cont"
+      >
+        <button
+          class="dots"
+          :class="{'current-photo': (indexCount + 1) === len}"
+        />
+      </div>
     </div>
-  </div>
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -57,12 +57,10 @@ const props = defineProps({
     required: true,
     default: () => {}
   }
-  
 })
 
 const storeAuth = useStoreAuth()
 const storeImages = useStoreImages()
-
 
 const indexCount = ref(0)
 const increaseIndex = () => {
@@ -121,11 +119,11 @@ h5{
   padding: 0 10px 19px ;
 }
 .plus{
-  top:33%;
+  top: 33%;
   right: 10px;
 }
 .minus{
-  top:33%;
+  top: 33%;
   left: 10px;
 }
 .like-stay{
@@ -133,13 +131,13 @@ h5{
   width: 16.39px;
   height: 16.39px;
   position: absolute;
-  top:15px;
+  top: 15px;
   right: 13px;
 }
 .dots{
   border-radius: 20px;
   padding: 3px;
-  margin:0 5px;
+  margin: 0 5px;
   border: none;
   background-color: rgba(197, 197, 197, 0.884);
 }
@@ -149,8 +147,8 @@ h5{
 .fix-dots{
   display: inline-block;
   position: absolute;
-  top:266px;
-  left:116px;
+  top: 266px;
+  left: 116px;
 
 }
 .current-photo{
