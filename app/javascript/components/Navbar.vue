@@ -1,18 +1,21 @@
 <template>
-  <div class="container">
-    <div class="navbar-block">
-      <div
+  <header class="header">
+    <nav class="navbar-block">
+      <img
+        src="../../../assets/img/logo.svg"
         class="logo"
         @click="$router.push('/')"
-      />
-
+      >
       <div
         v-if="storeAuth.searchClose"
         class="btn-block"
         @click="searchOpen"
       >
         <div class="search-for-button" />
-        <button class="btn">
+        <button
+          class="btn"
+          @click="searchOpen"
+        >
           Search
         </button>
       </div>
@@ -22,98 +25,103 @@
           class="search-block"
         >
           <div class="search-name">
-            <p style="border-bottom: 2px solid black">
+            <p class="stays">
               Stays
             </p>
-            <p>Experiences</p>
+            <p class="experiences">
+              Experiences
+            </p>
           </div>
-          <div>
+          <div v-if="storeAuth.searchOpen">
             <div class="block-for-input">
-              <div class="input-content">
-                <label>Name</label>
+              <form
+                class="input-content"
+                @submit.prevent
+              >
+                <label class="label">Name</label>
                 <input
                   type="text"
                   placeholder="Property name"
                   class="input"
                 >
-              </div>
+              </form>
               <div class="btn-block">
                 <div class="search-for-button" />
                 <button class="btn">
                   Search
-                </button>
+                </button> 
               </div>
-            </div>
+            </div>  
           </div>
-        </div>
+        </div> 
       </transition>
-
-      <div
+   
+      <button
         class="navigation-menu"
         @click="loginOpen"
       >
         <div class="block-svg" />
         <div class="user-image" />
-      </div>
+      </button>
       <transition name="fade">
         <div
           v-if="storeAuth.loginOpen"
           class="open-action"
         >
-          <p
+          <button
             class="pointer"
             @click="showLogin"
           >
             Log in
-          </p>
-          <p
+          </button>
+          <button
             class="pointer"
             @click="showSignUp"
           >
             Sign up
-          </p>
+          </button>
         </div>
       </transition>
 
       <transition name="fade">
         <div
           v-if="storeAuth.logOutOpen"
-          class="open-action"
-          style="height: 60px"
+          class="open-action exit"
         >
-          <p
+          <button
             class="pointer"
-            style="margin: 0 0 0 15px"
             @click="toExit"
           >
             Log out
-          </p>
+          </button>
         </div>
       </transition>
-    </div>
-    <div :class="{ darkBlock: storeAuth.dialogLogin || storeAuth.dialogSignUp }">
-      <transition name="fade">
-        <DialogLogin
-          v-if="storeAuth.dialogLogin"
-          class="test"
-        />
-      </transition>
-      <transition name="fade">
-        <DialogSignUp v-if="storeAuth.dialogSignUp" />
-      </transition>
-    </div>
+    </nav>
+  </header>
+  <div
+    :class="{'dark-block': ( storeAuth.dialogLogin || storeAuth.dialogSignUp)}"
+    @click="closeDialogWindow"
+  >
+    <transition name="fade">
+      <DialogLoginOrSignUp
+        v-if="storeAuth.dialogLogin"
+        class="test"
+        @click.stop
+      />
+    </transition>
   </div>
 </template>
 
 <script setup>
-import { useStoreAuth } from '@/store/store'
+import DialogLoginOrSignUp from '@/components/DialogLoginOrSignUp.vue'
+import {useStoreAuth} from '@/store/store'
 const storeAuth = useStoreAuth()
 const searchOpen = () => {
   storeAuth.searchOpen = true
   storeAuth.searchClose = false
 }
 const loginOpen = () => {
-  if (storeAuth.isAuth == false) {
+  if (storeAuth.isAuth === false) {
     storeAuth.loginOpen = !storeAuth.loginOpen
   }
   if (storeAuth.isAuth) {
@@ -130,21 +138,15 @@ const showSignUp = () => {
   storeAuth.loginOpen = false
   storeAuth.logOutOpen = false
   storeAuth.dialogSignUp = true
-  storeAuth.dialogLogin = false
+  storeAuth.dialogLogin = true
 }
 const toExit = () => {
   storeAuth.logOutOpen = false
   storeAuth.deleteSession()
 }
-</script>
-<script>
-import DialogLogin from '@/components/DialogLogin.vue'
-import DialogSignUp from '@/components/DialogSignUp.vue'
-export default {
-  components: {
-    DialogLogin,
-    DialogSignUp,
-  },
+const closeDialogWindow = () => {
+  storeAuth.dialogSignUp = false
+  storeAuth.dialogLogin = false
 }
 </script>
 <style scoped>
@@ -155,14 +157,11 @@ export default {
   animation: bounce-in 0.7s;
 }
 .bounce-leave-active {
-  animation: bounce-in 0.9s reverse;
+  animation: bounce-in 0.8s reverse;
 }
 @keyframes bounce-in {
   0% {
     transform: scale(0);
-  }
-  50% {
-    transform: scale(1.25);
   }
   100% {
     transform: scale(1);
@@ -170,15 +169,19 @@ export default {
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.7s ease;
 }
 
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }
-.container {
+.header {
   display: block !important ;
+  position: sticky;
+  top:0;
+  z-index: 1000;
+  background-color: white;
 }
 .navbar-block {
   display: flex;
@@ -188,7 +191,6 @@ export default {
   margin: 0 auto;
 }
 .logo {
-  background-image: url('../../../assets/img/logo.svg');
   width: 72px;
   height: 22px;
   margin-top: 6px;
@@ -226,6 +228,7 @@ export default {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  background-color: white;
 }
 .block-svg {
   background-image: url('../../../assets/img/block.svg');
@@ -240,9 +243,8 @@ export default {
   width: 21.75px;
   height: 21.75px;
   position: absolute;
-  top: 6px;
-  right: 10px;
-  /* cursor: pointer; */
+  top:6px;
+  right:10px;
 }
 .search-block {
   height: 100px;
@@ -253,9 +255,9 @@ export default {
 .block-for-input {
   width: 620px;
   height: 54px;
-  padding: 6px;
-  border: 0.725px solid #ffffff;
-  box-shadow: 0px 4.35px 14.5px rgba(0, 0, 0, 0.2);
+  padding:6px;
+  border: 0.725px solid #FFFFFF;
+  box-shadow: 0px 0px 10.5px rgba(0, 0, 0, 0.2);
   border-radius: 23.2px;
   display: flex;
   flex-direction: row;
@@ -270,17 +272,24 @@ export default {
 .search-name {
   margin: 0 auto;
 }
-p {
-  margin: 6px 10px 0 10px;
-  padding-bottom: 3px;
+.stays, .experiences{
+  margin:0 0 16px 0;
+  padding:10px 20px 5px 20px;
+  
+}
+.stays{
+  border-bottom:2px solid  #222222;
 }
 .input {
   border: none;
-  outline: none;
-}
-label {
-  font: 800 12px / 12px 'Roboto';
+  font: 500 12px / 12px 'Roboto';
   margin-bottom: 3px;
+  outline:none;
+  margin-left: 6px;
+}
+.label{
+  font: 800 12px / 12px 'Roboto';
+  margin:0 0 3px 5px;
 }
 .open-action {
   position: fixed;
@@ -294,40 +303,37 @@ label {
   flex-direction: column;
   justify-content: space-around;
   background-color: white;
-  box-shadow: 0px 2px 7px rgba(119, 119, 119, 0.411);
-  /* border:1px solid rgba(88, 88, 88, 0.308) */
+  box-shadow: 0px 0px 7px rgba(119, 119, 119, 0.411);
 }
-/* .open-action-logout{
-  position: fixed;
-  top:70px;
-  right:45px;
-  z-index: 10;
-  width: 187px;
-  height: 56px;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  background-color: white;
-  box-shadow: 0px 2px 7px rgba(119, 119, 119, 0.411);
-} */
-/* .darkBlock{
-  background: rgba(0, 0, 0, 0.5);
-} */
-.test {
+.test{
   width: 100%;
   position: fixed;
   z-index: 1000;
 }
-.darkBlock {
+.dark-block {
   background: rgba(0, 0, 0, 0.315);
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0;
+  left:0;
+  z-index: 1000;
 }
 .pointer {
   cursor: pointer;
+  padding:8px 20px;
+  text-align: left;
+  background-color: white;
+  border: none;
+  font-size: 14px;
+}
+.pointer:hover{
+  background-color: rgba(170, 170, 170, 0.199);
+}
+.navigation-menu:hover{
+  box-shadow: 0px 0px 7px rgba(119, 119, 119, 0.411);
+}
+.exit{
+  height: 60px;
 }
 </style>

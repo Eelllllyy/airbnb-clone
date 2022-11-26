@@ -44,7 +44,7 @@ if File.exist?('tmp/photos/video_1.mp4')
     { io: File.open('tmp/photos/video_1.mp4'), filename: 'video_1.mp4', content_type: 'video/mp4' }
   )
 end
-if File.exist?('tmp/photos/photo_1.mp4')
+if File.exist?('tmp/photos/photo_1.jpeg')
   exp1.photos.attach(
     { io: File.open('tmp/photos/photo_1.jpeg'), filename: 'photo_1.jpeg', content_type: 'image/jpeg' }
   )

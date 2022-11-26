@@ -69,3 +69,53 @@ export const useStoreAuth = defineStore({
     },
   },
 })
+
+export const useStoreImages = defineStore({
+    id: 'images',
+    state: () => ({
+      location: '',
+      name: '',
+      price:'',
+      rating:'',
+      cards:null,
+      page:1,
+      items:10,
+      totalPages:0,
+    }),
+    actions:{
+      async getCards() {
+        try{
+          const response = await axios.get('/api/stays',{
+            params:{
+              page: this.page,
+              items: this.items
+            }
+          })
+          this.totalPages = Math.ceil(response.headers['total-count'] / this.items)
+          console.log(response)
+          this.cards = response.data
+          console.log(this.cards)
+
+
+        }catch({response}){
+          console.error(response)
+        }
+      },
+      async loadMoreCards(){
+        try{
+          this.page += 1;
+          const response = await axios.get('/api/stays',{
+            params:{
+              page: this.page,
+              items: this.items
+            }
+          })
+          this.cards = [...this.cards,...response.data]
+        }catch({response}){
+          console.error(response)
+        }
+      }
+    },
+    
+})
+
