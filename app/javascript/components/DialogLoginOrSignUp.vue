@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <section 
+      <section
         class="section"
         @click.capture="(returnLabelfor('email') || returnLabelfor('name') || returnLabelfor('password') || returnLabelfor('passwordRepeat'))"
       >
@@ -13,7 +13,7 @@
           <div class="block-for-text">
             <h4 class="text-header">
               Log in or sign up
-            </h4>            
+            </h4>
           </div>
           <div class="line-gray" />
         </header>
@@ -29,46 +29,53 @@
               class="input-content"
               @click.stop="moveLabelFor('email')"
               @keyup="moveLabelFor('email')"
+              :class="{ error: v$.email.$errors.length }"
             >
               <label
                 class="label email"
                 :class="{'move-label': isActiveLabelEmail}"
               >Email</label>
               <input
-                v-model="storeAuth.email"
+                v-model="v$.email.$model"
                 class="input border-radius-top"
-              > 
+              >
+              <div v-if="v$.email.$error">Укажи почту бяка</div>
             </div>
+
             <div
               v-if="storeAuth.dialogSignUp"
               class="input-content"
               @click="moveLabelFor('name')"
               @keyup="moveLabelFor('name')"
+              :class="{ error: v$.name.$errors.length }"
             >
               <label
                 class="label name"
                 :class="{'move-label': isActiveLabelName}"
               >Name</label>
               <input
-                v-model="storeAuth.name"
+                v-model="v$.name.$model"
                 class="input"
               >
+              <div v-if="v$.name.$error">Укажи имя казел</div>
             </div>
             <div
               class="input-content"
               @click.stop="moveLabelFor('password')"
               @keyup="moveLabelFor('password')"
+              :class="{ error: v$.password.$errors.length }"
             >
               <label
                 class="label password"
                 :class="{'move-label': isActiveLabelPassword}"
               >Password</label>
               <input
-                v-model="storeAuth.password"
-                :type="showPassword ? 'text' : 'password'" 
+                v-model="v$.password.$model"
+                :type="showPassword ? 'text' : 'password'"
                 class="input"
                 :class="{'border-radius-bottom' : !storeAuth.dialogSignUp }"
               >
+              <div v-if="v$.password.$error">Где пароль А А А?</div>
               <div :class="{'password-visible' : !storeAuth.dialogSignUp }" @click="showPassword = !showPassword"></div>
             </div>
             <div
@@ -76,16 +83,18 @@
               class="input-content"
               @click="moveLabelFor('passwordRepeat')"
               @keyup="moveLabelFor('passwordRepeat')"
+              :class="{ error: v$.passwordRepeat.$errors.length }"
             >
               <label
                 class="label password-repeat"
                 :class="{'move-label': isActiveLabelPasswordRepeat}"
               >Password Repeat</label>
               <input
-                v-model="storeAuth.passwordRepeat"
+                v-model="v$.passwordRepeat.$model"
                 :type="showPassword? 'text' : 'password'"
                 class="input border-radius-bottom"
               >
+              <div v-if="v$.passwordRepeat.$error">Ты тупой или слепой?</div>
               <div class="password-visible" @click="showPassword = !showPassword"></div>
             </div>
             <p
@@ -118,9 +127,19 @@
 </template>
 <script setup>
 import { useStoreAuth } from '@/store/store'
-import { ref } from 'vue'
-
+import { ref, reactive  } from 'vue'
+import { useVuelidate } from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
 const storeAuth = useStoreAuth()
+
+const rules = reactive ({
+  email: { required },
+  name: { required },
+  password: { required },
+  passwordRepeat: { required }
+})
+
+const v$ = reactive(useVuelidate(rules, storeAuth))
 
 const showPassword = ref(false)
 const isActiveLabelEmail = ref(false)
@@ -129,6 +148,10 @@ const isActiveLabelPasswordRepeat = ref(false)
 const isActiveLabelName = ref(false)
 
 const toContinue = async() => {
+  const isCorrect = v$.validate
+  if (!isCorrect) {
+    return;
+  }
   if(storeAuth.dialogSignUp){
     await storeAuth.createUser()
   }
@@ -164,6 +187,9 @@ const closeAndReset = () => {
 }
 </script>
 <style scoped>
+.error {
+  border-color: red;
+}
 .section{
   position: fixed;
   max-width: 500px;
@@ -224,7 +250,7 @@ const closeAndReset = () => {
   width: 100%;
   height: 48px;
   color: white;
-  font: 600 15px / 30px 'Roboto'; 
+  font: 600 15px / 30px 'Roboto';
   background: linear-gradient(90deg, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
   border-radius: 8px;
   border: none;

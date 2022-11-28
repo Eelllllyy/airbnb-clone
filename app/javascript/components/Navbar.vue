@@ -2,27 +2,28 @@
   <header class="header">
     <nav class="navbar-block">
       <img
-        src="../../../assets/img/logo.svg"
-        class="logo"
-        @click="$router.push('/')"
+          src="../../../assets/img/logo.svg"
+          class="logo"
+          @click="$router.push('/')"
       >
       <div
-        v-if="storeAuth.searchClose"
-        class="btn-block"
-        @click="searchOpen"
-      >
-        <div class="search-for-button" />
-        <button
-          class="btn"
+          v-if="storeAuth.searchClose"
+          class="btn-block"
           @click="searchOpen"
+      >
+        <div class="search-for-button"/>
+        <button
+            v-if="route.params.id === undefined"
+            class="btn"
+            @click="searchOpen"
         >
           <b>Search</b>
         </button>
       </div>
       <transition name="bounce">
         <div
-          v-if="storeAuth.searchOpen"
-          class="search-block"
+            v-if="storeAuth.searchOpen"
+            class="search-block"
         >
           <div class="search-name">
             <p class="stays">
@@ -35,50 +36,50 @@
           <div v-if="storeAuth.searchOpen">
             <div class="block-for-input">
               <form
-                class="input-content"
-                @submit.prevent
+                  class="input-content"
+                  @submit.prevent
               >
                 <label class="label">Name</label>
                 <input
-                  type="text"
-                  placeholder="Property name"
-                  class="input"
-                  v-model="storeImages.search"
+                    type="text"
+                    placeholder="Property name"
+                    class="input"
+                    v-model="storeImages.search"
                 >
               </form>
               <div class="btn-block">
-                <div class="search-for-button" />
+                <div class="search-for-button"/>
                 <button class="btn"
-                @click="searchCards">
+                        @click="searchCards">
                   Search
-                </button> 
+                </button>
               </div>
-            </div>  
+            </div>
           </div>
-        </div> 
+        </div>
       </transition>
-   
+
       <button
-        class="navigation-menu"
-        @click="loginOpen"
+          class="navigation-menu"
+          @click="loginOpen"
       >
-        <div class="block-svg" />
-        <div class="user-image" />
+        <div class="block-svg"/>
+        <div class="user-image"/>
       </button>
       <transition name="fade">
         <div
-          v-if="storeAuth.loginOpen"
-          class="open-action"
+            v-if="storeAuth.loginOpen"
+            class="open-action"
         >
           <button
-            class="pointer"
-            @click="showLogin"
+              class="pointer"
+              @click="showLogin"
           >
             Log in
           </button>
           <button
-            class="pointer"
-            @click="showSignUp"
+              class="pointer"
+              @click="showSignUp"
           >
             Sign up
           </button>
@@ -87,12 +88,12 @@
 
       <transition name="fade">
         <div
-          v-if="storeAuth.logOutOpen"
-          class="open-action exit"
+            v-if="storeAuth.logOutOpen"
+            class="open-action exit"
         >
           <button
-            class="pointer"
-            @click="toExit"
+              class="pointer"
+              @click="toExit"
           >
             Log out
           </button>
@@ -101,14 +102,14 @@
     </nav>
   </header>
   <div
-    :class="{'dark-block': ( storeAuth.dialogLogin || storeAuth.dialogSignUp)}"
-    @click="closeDialogWindow"
+      :class="{'dark-block': ( storeAuth.dialogLogin || storeAuth.dialogSignUp)}"
+      @click="closeDialogWindow"
   >
     <transition name="fade">
       <DialogLoginOrSignUp
-        v-if="storeAuth.dialogLogin"
-        class="test"
-        @click.stop
+          v-if="storeAuth.dialogLogin"
+          class="test"
+          @click.stop
       />
     </transition>
   </div>
@@ -116,11 +117,17 @@
 
 <script setup>
 import DialogLoginOrSignUp from '@/components/DialogLoginOrSignUp.vue'
-import {useStoreAuth,useStoreImages} from '@/store/store'
+import {useStoreAuth, useStoreImages} from '@/store/store'
+import {useRoute} from 'vue-router'
 
+const route = useRoute()
 const storeImages = useStoreImages()
 const storeAuth = useStoreAuth()
 
+
+// const isVisible = () => {
+//   route.params.id !== 0
+// }
 const searchCards = async () => {
   await storeImages.getCards()
 }
@@ -166,12 +173,15 @@ const closeDialogWindow = () => {
 * {
   display: inline-block;
 }
+
 .bounce-enter-active {
   animation: bounce-in 0.7s;
 }
+
 .bounce-leave-active {
   animation: bounce-in 0.8s reverse;
 }
+
 @keyframes bounce-in {
   0% {
     transform: scale(0);
@@ -180,6 +190,7 @@ const closeDialogWindow = () => {
     transform: scale(1);
   }
 }
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.7s ease;
@@ -189,13 +200,15 @@ const closeDialogWindow = () => {
 .fade-leave-to {
   opacity: 0;
 }
+
 .header {
-  display: block !important ;
+  display: block !important;
   position: sticky;
-  top:0;
+  top: 0;
   z-index: 1000;
   background-color: white;
 }
+
 .navbar-block {
   display: flex;
   justify-content: space-between;
@@ -203,17 +216,20 @@ const closeDialogWindow = () => {
   width: 95%;
   margin: 0 auto;
 }
+
 .logo {
   width: 118px;
   height: 35px;
   margin-top: 6px;
   cursor: pointer;
 }
+
 .btn-block {
   position: relative;
   margin: 2px;
   cursor: pointer;
 }
+
 .btn {
   background: linear-gradient(90deg, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
   border-radius: 25px;
@@ -223,6 +239,7 @@ const closeDialogWindow = () => {
   z-index: 0;
   cursor: pointer;
 }
+
 .search-for-button {
   background-image: url('../../../assets/img/search.svg');
   width: 11.6px;
@@ -231,6 +248,7 @@ const closeDialogWindow = () => {
   top: 11px;
   left: 10px;
 }
+
 .navigation-menu {
   width: 66px;
   height: 38px;
@@ -243,6 +261,7 @@ const closeDialogWindow = () => {
   cursor: pointer;
   background-color: white;
 }
+
 .block-svg {
   background-image: url('../../../assets/img/block.svg');
   width: 10.15px;
@@ -251,24 +270,27 @@ const closeDialogWindow = () => {
   top: 14px;
   left: 10px;
 }
+
 .user-image {
   background-image: url('../../../assets/img/userImage.svg');
   width: 21.75px;
   height: 21.75px;
   position: absolute;
-  top:6px;
-  right:10px;
+  top: 6px;
+  right: 10px;
 }
+
 .search-block {
   height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .block-for-input {
   width: 620px;
   height: 54px;
-  padding:6px;
+  padding: 6px;
   border: 0.725px solid #FFFFFF;
   box-shadow: 0px 0px 10.5px rgba(0, 0, 0, 0.2);
   border-radius: 23.2px;
@@ -276,34 +298,47 @@ const closeDialogWindow = () => {
   flex-direction: row;
   justify-content: space-between;
 }
+
 .input-content {
   display: flex;
   flex-direction: column;
   margin: 5px;
   width: 90%;
 }
+
 .search-name {
   margin: 0 auto;
 }
-.stays, .experiences{
-  margin:0 0 16px 0;
-  padding:10px 20px 5px 20px;
-  
+
+.stays {
+  margin: 0 0 16px 0;
+  padding: 10px 20px 5px 20px;
 }
-.stays{
-  border-bottom:2px solid  #222222;
+
+.experiences {
+  color: #BBBBBB;
+  margin: 0 0 16px 0;
+  padding: 10px 20px 5px 20px;
+  cursor: not-allowed;
 }
+
+.stays {
+  border-bottom: 2px solid #222222;
+}
+
 .input {
   border: none;
   font: 500 12px / 12px 'Roboto';
   margin-bottom: 3px;
-  outline:none;
+  outline: none;
   margin-left: 6px;
 }
-.label{
+
+.label {
   font: 800 12px / 12px 'Roboto';
-  margin:0 0 3px 5px;
+  margin: 0 0 3px 5px;
 }
+
 .open-action {
   position: fixed;
   top: 70px;
@@ -318,35 +353,41 @@ const closeDialogWindow = () => {
   background-color: white;
   box-shadow: 0px 0px 7px rgba(119, 119, 119, 0.411);
 }
-.test{
+
+.test {
   width: 100%;
   position: fixed;
   z-index: 1000;
 }
+
 .dark-block {
   background: rgba(0, 0, 0, 0.315);
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
-  left:0;
+  left: 0;
   z-index: 1000;
 }
+
 .pointer {
   cursor: pointer;
-  padding:8px 20px;
+  padding: 8px 20px;
   text-align: left;
   background-color: white;
   border: none;
   font-size: 14px;
 }
-.pointer:hover{
+
+.pointer:hover {
   background-color: rgba(170, 170, 170, 0.199);
 }
-.navigation-menu:hover{
+
+.navigation-menu:hover {
   box-shadow: 0px 0px 7px rgba(119, 119, 119, 0.411);
 }
-.exit{
+
+.exit {
   height: 60px;
 }
 </style>

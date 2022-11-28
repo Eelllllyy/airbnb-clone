@@ -14,10 +14,10 @@
         id="container"
         class="container"
       >
-        <div 
+        <div
           v-for="card in storeImages.cards"
           class="card-with-photo"
-          
+
         >
           <OneCard
             :key="card.id"
@@ -33,7 +33,7 @@
         <b>Show More</b>
       </button>
       <Footer />
-    </main> 
+    </main>
   </div>
 </template>
 <script setup>
@@ -117,11 +117,11 @@ const goToStay = (id) => {
   background: linear-gradient(90deg, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
   border-radius: 25px;
   border: none;
-  padding: 20px 10px;
+  padding: 12px 10px;
   color: white;
   cursor: pointer;
   margin:0 auto;
   display: block;
-  
+
 }
 </style>
