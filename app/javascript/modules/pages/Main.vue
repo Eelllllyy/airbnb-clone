@@ -17,6 +17,7 @@
         <div 
           v-for="card in storeImages.cards"
           class="card-with-photo"
+          
         >
           <OneCard
             :key="card.id"
@@ -42,6 +43,7 @@ import Footer from '@/components/Footer.vue'
 import OneCard from '@/components/OneCard.vue'
 import Navbar from '@/components/Navbar.vue';
 import { ref, onMounted, watch } from 'vue';
+
 
 const storeAuth = useStoreAuth()
 const storeImages = useStoreImages()
@@ -94,6 +96,7 @@ const goToStay = (id) => {
 .card-with-photo {
   position: relative;
   height: 400px;
+  width: 300px;
   margin-bottom: 30px;
 }
 .card-with-photo:hover .btn{

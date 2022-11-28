@@ -37,7 +37,7 @@
   display: block !important ;
   position: sticky;
   bottom: 0;
-  z-index: 0;
+  z-index: 10;
   background-color: white;
 }
 
