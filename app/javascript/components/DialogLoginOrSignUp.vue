@@ -65,10 +65,11 @@
               >Password</label>
               <input
                 v-model="storeAuth.password"
-                type="password"
-                class="input "
+                :type="showPassword ? 'text' : 'password'" 
+                class="input"
                 :class="{'border-radius-bottom' : !storeAuth.dialogSignUp }"
               >
+              <div :class="{'password-visible' : !storeAuth.dialogSignUp }" @click="showPassword = !showPassword"></div>
             </div>
             <div
               v-if="storeAuth.dialogSignUp"
@@ -82,9 +83,10 @@
               >Password Repeat</label>
               <input
                 v-model="storeAuth.passwordRepeat"
-                type="password"
+                :type="showPassword? 'text' : 'password'"
                 class="input border-radius-bottom"
               >
+              <div class="password-visible" @click="showPassword = !showPassword"></div>
             </div>
             <p
               v-if="storeAuth.error"
@@ -92,7 +94,7 @@
             >
               {{ storeAuth.error }}
             </p>
-            <div v-if="(storeAuth.dialogLogin === true && storeAuth.dialogSignUp === false) ">
+            <div v-if="(storeAuth.dialogLogin && !storeAuth.dialogSignUp)">
               <p class="privacy-policy">
                 We’ll call or text you to confirm your number. Standard message and data rates apply.
                 <b class="text-underline">
@@ -120,6 +122,7 @@ import { ref } from 'vue'
 
 const storeAuth = useStoreAuth()
 
+const showPassword = ref(false)
 const isActiveLabelEmail = ref(false)
 const isActiveLabelPassword = ref(false)
 const isActiveLabelPasswordRepeat = ref(false)
@@ -265,5 +268,13 @@ const closeAndReset = () => {
 .greetings{
   margin-bottom: 20px
 }
-
+.password-visible{
+  background-image: url('../../../assets/img/eye.svg');
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 11px;
+  bottom: 35px;
+  cursor: pointer;
+}
 </style>

@@ -47,6 +47,7 @@ export const useStoreAuth = defineStore({
           email: this.email,
           password: this.password,
         })
+        VueCookies.set('token', response.data.access, 60, null, null, true)
         ;(this.password = ''), (this.name = ''), (this.email = ''), (this.error = ''), (this.dialogLogin = true)
         this.dialogSignUp = false
       } catch ({ response }) {
@@ -81,6 +82,7 @@ export const useStoreImages = defineStore({
       page:1,
       items:10,
       totalPages:0,
+      search:''
     }),
     actions:{
       async getCards() {
@@ -88,29 +90,31 @@ export const useStoreImages = defineStore({
           const response = await axios.get('/api/stays',{
             params:{
               page: this.page,
-              items: this.items
+              items: this.items,
+              search: this.search
             }
           })
-          this.totalPages = Math.ceil(response.headers['total-count'] / this.items)
-          console.log(response)
+          this.totalPages = response.headers['total-pages']
+          this.page = response.headers['current-page']
           this.cards = response.data
-          console.log(this.cards)
-
-
         }catch({response}){
           console.error(response)
         }
       },
       async loadMoreCards(){
         try{
-          this.page += 1;
+          
           const response = await axios.get('/api/stays',{
             params:{
-              page: this.page,
+              page: parseInt(this.page) + 1,
               items: this.items
             }
           })
-          this.cards = [...this.cards,...response.data]
+          this.page = response.headers['current-page']
+          this.totalPages = response.headers['total-pages']
+          this.cards.push(...response.data)
+          
+          // this.cards = [...this.cards,...response.data]
         }catch({response}){
           console.error(response)
         }

@@ -3,19 +3,19 @@
     <section class="section">
       <div>
         <p>© 2022 Airbnb, Inc.</p>
-        <p class="dats">
+        <p class="point">
           ·
         </p>
         <p>Privacy</p>
-        <p class="dats">
+        <p class="point">
           ·
         </p>
         <p>Terms</p>
-        <p class="dats">
+        <p class="point">
           ·
         </p>
         <p>Sitemap</p>
-        <p class="dats">
+        <p class="point">
           ·
         </p>
         <p>Destinations</p>
@@ -24,17 +24,14 @@
         <div class="lang-cont">
           <div class="lang" />
         </div>
-        <p class="unvis">
+        <p class="invisible">
           English (US)
         </p>
         <p>Support & resources</p>
-        <p />
       </div>
     </section>
   </footer>
 </template>
-<script setup>
-</script>
 <style scoped>
 .footer{
   display: block !important ;
@@ -56,7 +53,7 @@
 p{
   display: inline;
 }
-.dats{
+.point{
   margin: 0 7px;
 }
 .lang-cont{
@@ -70,7 +67,7 @@ p{
   position: absolute;
   left: 0;
 }
-.unvis{
+.invisible{
   padding: 0 25px
 }
 </style>

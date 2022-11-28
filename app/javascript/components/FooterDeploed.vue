@@ -90,25 +90,25 @@
     <section class="section-two">
       <div>
         <p>© 2022 Airbnb, Inc.</p>
-        <p class="dats">
+        <p class="point">
           ·
         </p>
         <p class="pointer">
           Privacy
         </p>
-        <p class="dats">
+        <p class="point">
           ·
         </p>
         <p class="pointer">
           Terms
         </p>
-        <p class="dats">
+        <p class="point">
           ·
         </p>
         <p class="pointer">
           Sitemap
         </p>
-        <p class="dats">
+        <p class="point">
           ·
         </p>
         <p class="pointer">
@@ -119,7 +119,7 @@
         <div class="lang-container">
           <div class="lang" />
         </div>
-        <p class="unvis pointer">
+        <p class="invisible pointer">
           English (US)
         </p>
         <p class="pointer">
@@ -134,8 +134,6 @@
     </section>
   </footer>
 </template>
-<script setup>
-</script>
 <style scoped>
 .footer{
 width: 100%;
@@ -176,7 +174,7 @@ background: #F7F7F7;
 p{
   display: inline;
 }
-.dats{
+.point{
   margin:0 7px;
 }
 .lang-container{
@@ -190,7 +188,7 @@ p{
   position: absolute;
   left:0;
 }
-.unvis{
+.invisible{
   padding:0 25px
 }
 .icon-facebook{

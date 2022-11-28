@@ -17,7 +17,6 @@
         <div 
           v-for="card in storeImages.cards"
           class="card-with-photo"
-          @click="goToStay(card.id)"
         >
           <OneCard
             :key="card.id"

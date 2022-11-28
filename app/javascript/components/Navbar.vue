@@ -16,7 +16,7 @@
           class="btn"
           @click="searchOpen"
         >
-          Search
+          <b>Search</b>
         </button>
       </div>
       <transition name="bounce">
@@ -43,11 +43,13 @@
                   type="text"
                   placeholder="Property name"
                   class="input"
+                  v-model="storeImages.search"
                 >
               </form>
               <div class="btn-block">
                 <div class="search-for-button" />
-                <button class="btn">
+                <button class="btn"
+                @click="searchCards">
                   Search
                 </button> 
               </div>
@@ -114,14 +116,20 @@
 
 <script setup>
 import DialogLoginOrSignUp from '@/components/DialogLoginOrSignUp.vue'
-import {useStoreAuth} from '@/store/store'
+import {useStoreAuth,useStoreImages} from '@/store/store'
+
+const storeImages = useStoreImages()
 const storeAuth = useStoreAuth()
+
+const searchCards = async () => {
+  await storeImages.getCards()
+}
 const searchOpen = () => {
   storeAuth.searchOpen = true
   storeAuth.searchClose = false
 }
 const loginOpen = () => {
-  if (storeAuth.isAuth === false) {
+  if (!storeAuth.isAuth) {
     storeAuth.loginOpen = !storeAuth.loginOpen
   }
   if (storeAuth.isAuth) {
@@ -147,6 +155,11 @@ const toExit = () => {
 const closeDialogWindow = () => {
   storeAuth.dialogSignUp = false
   storeAuth.dialogLogin = false
+  storeAuth.email = ''
+  storeAuth.password = ''
+  storeAuth.passwordRepeat = ''
+  storeAuth.name = ''
+  storeAuth.error = ''
 }
 </script>
 <style scoped>
@@ -191,8 +204,8 @@ const closeDialogWindow = () => {
   margin: 0 auto;
 }
 .logo {
-  width: 72px;
-  height: 22px;
+  width: 118px;
+  height: 35px;
   margin-top: 6px;
   cursor: pointer;
 }
@@ -205,7 +218,7 @@ const closeDialogWindow = () => {
   background: linear-gradient(90deg, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
   border-radius: 25px;
   border: none;
-  padding: 10px 15px 10px 30px;
+  padding: 10px 16px 10px 30px;
   color: white;
   z-index: 0;
   cursor: pointer;
@@ -267,7 +280,7 @@ const closeDialogWindow = () => {
   display: flex;
   flex-direction: column;
   margin: 5px;
-  width: 60%;
+  width: 90%;
 }
 .search-name {
   margin: 0 auto;

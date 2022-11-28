@@ -51,14 +51,14 @@
         <div />
       </section>
       <section class="section-picture">
-        <div class="container-for-img-1"> 
+        <div class="container-for-image"> 
           <img
             :src="stay?.photos[0].url"
             alt="avatar"
             class="img-1"
           >
         </div>
-        <div class="container-for-img-2">
+        <div class="container-for-images">
           <img
             :src="stay?.photos[1].url"
             alt="avatar"
@@ -266,10 +266,10 @@ h4 , p, .star , .share , .like, .img-1 ,.img-2 , .img-3 , .img-4, .img-5{
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.container-for-img-1{
+.container-for-image{
 width: 50%;
 }
-.container-for-img-2{
+.container-for-images{
   width: 49.5%;
   display: flex;
   flex-wrap: wrap;
