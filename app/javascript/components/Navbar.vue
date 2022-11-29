@@ -2,28 +2,28 @@
   <header class="header">
     <nav class="navbar-block">
       <img
-          src="../../../assets/img/logo.svg"
-          class="logo"
-          @click="$router.push('/')"
+        src="../../../assets/img/logo.svg"
+        class="logo"
+        @click="$router.push('/')"
       >
       <div
-          v-if="storeAuth.searchClose"
-          class="btn-block"
-          @click="searchOpen"
+        v-if="storeAuth.searchClose"
+        class="btn-block"
+        @click="searchOpen"
       >
-        <div class="search-for-button"/>
+        <div class="search-for-button" />
         <button
-            v-if="route.params.id === undefined"
-            class="btn"
-            @click="searchOpen"
+          v-if="route.params.id === undefined"
+          class="btn"
+          @click="searchOpen"
         >
           <b>Search</b>
         </button>
       </div>
       <transition name="bounce">
         <div
-            v-if="storeAuth.searchOpen"
-            class="search-block"
+          v-if="storeAuth.searchOpen"
+          class="search-block"
         >
           <div class="search-name">
             <p class="stays">
@@ -36,21 +36,23 @@
           <div v-if="storeAuth.searchOpen">
             <div class="block-for-input">
               <form
-                  class="input-content"
-                  @submit.prevent
+                class="input-content"
+                @submit.prevent
               >
                 <label class="label">Name</label>
                 <input
-                    type="text"
-                    placeholder="Property name"
-                    class="input"
-                    v-model="storeImages.search"
+                  v-model="storeImages.search"
+                  type="text"
+                  placeholder="Property name"
+                  class="input"
                 >
               </form>
               <div class="btn-block">
-                <div class="search-for-button"/>
-                <button class="btn"
-                        @click="searchCards">
+                <div class="search-for-button" />
+                <button
+                  class="btn"
+                  @click="searchCards"
+                >
                   Search
                 </button>
               </div>
@@ -60,26 +62,26 @@
       </transition>
 
       <button
-          class="navigation-menu"
-          @click="loginOpen"
+        class="navigation-menu"
+        @click="loginOpen"
       >
-        <div class="block-svg"/>
-        <div class="user-image"/>
+        <div class="block-svg" />
+        <div class="user-image" />
       </button>
       <transition name="fade">
         <div
-            v-if="storeAuth.loginOpen"
-            class="open-action"
+          v-if="storeAuth.loginOpen"
+          class="open-action"
         >
           <button
-              class="pointer"
-              @click="showLogin"
+            class="pointer"
+            @click="showLogin"
           >
             Log in
           </button>
           <button
-              class="pointer"
-              @click="showSignUp"
+            class="pointer"
+            @click="showSignUp"
           >
             Sign up
           </button>
@@ -88,12 +90,12 @@
 
       <transition name="fade">
         <div
-            v-if="storeAuth.logOutOpen"
-            class="open-action exit"
+          v-if="storeAuth.logOutOpen"
+          class="open-action exit"
         >
           <button
-              class="pointer"
-              @click="toExit"
+            class="pointer"
+            @click="toExit"
           >
             Log out
           </button>
@@ -102,14 +104,14 @@
     </nav>
   </header>
   <div
-      :class="{'dark-block': ( storeAuth.dialogLogin || storeAuth.dialogSignUp)}"
-      @click="closeDialogWindow"
+    :class="{'dark-block': ( storeAuth.dialogLogin || storeAuth.dialogSignUp)}"
+    @click="closeDialogWindow"
   >
     <transition name="fade">
       <DialogLoginOrSignUp
-          v-if="storeAuth.dialogLogin"
-          class="test"
-          @click.stop
+        v-if="storeAuth.dialogLogin"
+        class="test"
+        @click.stop
       />
     </transition>
   </div>
@@ -167,6 +169,7 @@ const closeDialogWindow = () => {
   storeAuth.passwordRepeat = ''
   storeAuth.name = ''
   storeAuth.error = ''
+  storeAuth.errors = ''
 }
 </script>
 <style scoped>

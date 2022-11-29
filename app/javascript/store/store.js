@@ -8,6 +8,7 @@ export const useStoreAuth = defineStore({
     email: '',
     password: '',
     error: '',
+    errors:'',
     token: null,
     isAuth: false,
     name: '',
@@ -48,10 +49,10 @@ export const useStoreAuth = defineStore({
           password: this.password,
         })
         VueCookies.set('token', response.data.access, 60, null, null, true)
-        ;(this.password = ''), (this.name = ''), (this.email = ''), (this.error = ''), (this.dialogLogin = true)
-        this.dialogSignUp = false
+        ;(this.password = ''), (this.name = ''), (this.email = ''), (this.errors = ''), 
+        this.dialogSignUp = false, this.dialogLogin = false, this.passwordRepeat = ''
       } catch ({ response }) {
-        this.error = response.data.error
+        this.errors = response.data.errors.full_messages
       }
     },
     async deleteSession() {

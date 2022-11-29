@@ -1,27 +1,28 @@
 <template>
   <Swiper
-      style="--swiper-theme-color:#bfbfbf;"
-      :slides-per-view="1"
-      :modules="[Navigation, Pagination , Virtual]"
-      navigation :pagination="{clickable:true, dynamicBullets: true}" grab-cursor
-
-      class="default-slider"
+    class="swiper"
+    :slides-per-view="1"
+    :modules="[Navigation, Pagination , Virtual]"
+    navigation
+    :pagination="{clickable:true, dynamicBullets: true}"
+    grab-cursor
   >
-
     <SwiperSlide v-for="photo in card.photos">
       <img
-          class="img"
-          :src="photo.url"
-          alt="avatar"
-          @click="goToStay(card.id)"
+        class="img"
+        :src="photo.url"
+        alt="avatar"
+        @click="goToStay(card.id)"
       >
     </SwiperSlide>
   </Swiper>
 
   <div class="rating">
-    <h5 @click="goToStay(card.id)">{{ card.location }}</h5>
+    <h5 @click="goToStay(card.id)">
+      {{ card.location }}
+    </h5>
     <div>
-      <div class="star-mini"/>
+      <div class="star-mini" />
       <h5>{{ card.rating }}</h5>
     </div>
   </div>
@@ -32,7 +33,7 @@
     Apr 2 – 7
   </p>
   <h5>{{ card?.price }} night</h5>
-  <div class="like-stay"/>
+  <div class="like-stay" />
 </template>
 <script setup>
 import {useStoreAuth, useStoreImages} from '@/store/store'
@@ -121,11 +122,10 @@ h5 {
   overflow: hidden;
 }
 
-.swiper-button-prev {
-  color: red;
+.swiper{
+  --swiper-theme-color:#ffffff;
+  --swiper-navigation-size:20px;
+  font-weight: 600;
 }
 
-.swiper-button-next {
-  color: #000;
-}
 </style>
