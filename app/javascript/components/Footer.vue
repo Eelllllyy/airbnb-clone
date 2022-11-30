@@ -52,6 +52,7 @@
 }
 p{
   display: inline;
+  cursor: pointer;
 }
 .point{
   margin: 0 7px;
