@@ -1,5 +1,5 @@
 # Airbnb clone
-___
+
 ## Main technologies:
 1. Vue version - ***3.2.40***
 2. Vue-router version - ***4.1.5***
@@ -7,7 +7,7 @@ ___
 4. Axios version- ***1.1.2***
 5. Swiper version- ***8.4.5***
 6. Vue-cookies - ***1.8.2***
-___
+
 ## Description
 A simple example of Airbnb
 
