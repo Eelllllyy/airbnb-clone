@@ -20,12 +20,12 @@ paths:
               examples:
                 пользователя успешно получен:
                   value:
-                    id: 83
-                    avatar:
-                    created_at: 2022-11-22 09:52:12 UTC
-                    email: marquis@prosacco-mcclure.org
-                    name: Shena Yost
-                    updated_at: 2022-11-22 09:52:12 UTC
+                    id: 1
+                    avatar: 
+                    created_at: 2022-11-22 10:14:24 UTC
+                    email: emery@reichel.io
+                    name: Mrs. Veronica Streich
+                    updated_at: 2022-11-22 10:14:24 UTC
                   summary: пользователя успешно получен
     delete:
       summary: Удаление сессии
@@ -66,21 +66,21 @@ paths:
               examples:
                 Список впечатлений получен:
                   value:
-                  - id: 8
-                    created_at: 2022-11-22 09:52:12 UTC
+                  - id: 1
+                    created_at: 2022-11-22 10:14:25 UTC
                     host:
-                      id: 85
-                      avatar:
-                      created_at: 2022-11-22 09:52:12 UTC
-                      email: angelyn@rau-kerluke.info
-                      name: Floyd Block
-                      updated_at: 2022-11-22 09:52:12 UTC
+                      id: 3
+                      avatar: 
+                      created_at: 2022-11-22 10:14:25 UTC
+                      email: deshawn@brekke.net
+                      name: Maritza Torphy
+                      updated_at: 2022-11-22 10:14:25 UTC
                     name: MyString
                     photos: []
                     price: MyString
                     rating: 1
-                    updated_at: 2022-11-22 09:52:12 UTC
-                    video:
+                    updated_at: 2022-11-22 10:14:25 UTC
+                    video: 
                   summary: Список впечатлений получен
   "/api/registration":
     post:
@@ -96,15 +96,15 @@ paths:
               examples:
                 Пользователь создан:
                   value:
-                    id: 87
-                    avatar:
-                    created_at: 2022-11-22 09:52:12 UTC
+                    id: 5
+                    avatar: 
+                    created_at: 2022-11-22 10:14:25 UTC
                     email: test@test.test
                     errors:
                       full_messages: []
                       messages: {}
                     name: Test
-                    updated_at: 2022-11-22 09:52:12 UTC
+                    updated_at: 2022-11-22 10:14:25 UTC
                   summary: Пользователь создан
         '422':
           description: Ошибка при регистрации
@@ -117,10 +117,10 @@ paths:
                   summary: Пользователь уже существует
                 Ошибка при регистрации:
                   value:
-                    id:
-                    avatar:
-                    created_at:
-                    email:
+                    id: 
+                    avatar: 
+                    created_at: 
+                    email: 
                     errors:
                       full_messages:
                       - Email can't be blank
@@ -128,7 +128,7 @@ paths:
                         email:
                         - can't be blank
                     name: Test
-                    updated_at:
+                    updated_at: 
                   summary: Ошибка при регистрации
       requestBody:
         content:
@@ -149,11 +149,11 @@ paths:
               examples:
                 Сессия создана:
                   value:
-                    csrf: PLImDvSuG152kbKe37Td7TgqEHOk2IzU2GYWvS4QYpv7CtY+811JFGMG4eajFX7tdc81S6Ri8zAOBy/NTmZR0A==
-                    access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxOTcxMzIsInVzZXJfaWQiOjg5LCJ1aWQiOiIzY2FkMTQ0Ni0zNWY4LTRhNTgtOGNlMC1iNTc5YTRmZjczMTciLCJydWlkIjoiZjIyZWVhMzQtNDQ2ZC00MmY1LWI3N2UtOGVmNzE4N2I4ZGVjIn0.vKA_W8_P5RdpJK9dMc1JGcawlhBXZcjEuHbn6p7Bdk0
-                    access_expires_at: '2022-11-23T12:52:12.000+03:00'
-                    refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzE3NDA0NzgsInVzZXJfaWQiOjg5LCJ1aWQiOiJmMjJlZWEzNC00NDZkLTQyZjUtYjc3ZS04ZWY3MTg3YjhkZWMifQ.mudi-4KoNfp2iO7u0KHv-fvIwiwqln2oKbsIOsO3SOw
-                    refresh_expires_at: '2022-12-22T23:21:18.000+03:00'
+                    csrf: R3T9PIDULAsn7Q/iI5jA/qXNGeu/eD3mcxVtFd7K2gA+eMEivTy/eP7F186lgPS40EWjTOkWi7vLB6/reC2sQg==
+                    access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxOTg0NjUsInVzZXJfaWQiOjcsInVpZCI6ImE3MjQ1M2E3LWQzM2MtNGJlZC05ZjEyLWEzN2YzYmIwNjAzYiIsInJ1aWQiOiI2YTc4MThiNS04M2JiLTQzN2YtYjY4NC0wODlmOTI0NGE3ZjgifQ.gMAuNWC0ZMQAS2g0OKObIwBthygYYMkndu6ycDfL00M
+                    access_expires_at: '2022-11-23T13:14:25.000+03:00'
+                    refresh: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NzE3NDE4MTEsInVzZXJfaWQiOjcsInVpZCI6IjZhNzgxOGI1LTgzYmItNDM3Zi1iNjg0LTA4OWY5MjQ0YTdmOCJ9.zia-ukZZMARW7zRI4SltW7_R7wVe0d3ZiXVpPwVlgLQ
+                    refresh_expires_at: '2022-12-22T23:43:31.000+03:00'
                   summary: Сессия создана
         '422':
           description: Неверный пароль
@@ -188,9 +188,9 @@ paths:
               examples:
                 Токен сессии обновлен:
                   value:
-                    csrf: v4w0s7f5Alj2PGq095mkdFBHLQ1eKO4rPQ/BUTrkzbpwgJvg8WFipcRn0KV+D5oOozeNru9/ovx6WPixkvxktg==
-                    access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxOTcxMzIsInVzZXJfaWQiOjkxLCJ1aWQiOiI4Nzg1NGY1Ny1jYzNjLTQwMDctOTk1NS04MTdjMDY3ODI1ZjkifQ.EmP-oaJJoBkQ4X-P9BzK6bqUF_m9zB4sEaSzkPLeQT8
-                    access_expires_at: '2022-11-23T12:52:12.000+03:00'
+                    csrf: erXI/O7Cpswd0B+YnQRh/2NOMHlHWZKpxs0jslxgSmFRqZ0MK4tQfFlmESLppPLGahiL4Jl7qG9HcZnmIqLb5Q==
+                    access: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjkxOTg0NjUsInVzZXJfaWQiOjksInVpZCI6ImE1MmM1ZDliLTMyODQtNGY1ZC04MGZhLTA1N2ZhNzU2NzJhMyJ9.7W-7Izy_OaB_TtC7qbWaMcuBtH_b5iaL_uS8n7uvTuw
+                    access_expires_at: '2022-11-23T13:14:25.000+03:00'
                   summary: Токен сессии обновлен
         '403':
           description: Срок действия рефреш токена истек
@@ -231,16 +231,16 @@ paths:
               examples:
                 Список мест получен:
                   value:
-                  - id: 11
-                    created_at: 2022-11-22 09:52:12 UTC
+                  - id: 1
+                    created_at: 2022-11-22 10:14:25 UTC
                     date_from: 2022-11-21 00:00:00 UTC
                     date_to: 2022-11-22 00:00:00 UTC
                     location: MyString
                     name: MyString
                     photos: []
                     price: MyString
-                    rating:
-                    updated_at: 2022-11-22 09:52:12 UTC
+                    rating: 
+                    updated_at: 2022-11-22 10:14:25 UTC
                   summary: Список мест получен
   "/api/stays/{id}":
     parameters:
@@ -264,23 +264,23 @@ paths:
               examples:
                 Место получено:
                   value:
-                    id: 12
-                    created_at: 2022-11-22 09:52:12 UTC
+                    id: 2
+                    created_at: 2022-11-22 10:14:25 UTC
                     date_from: 2022-11-21 00:00:00 UTC
                     date_to: 2022-11-22 00:00:00 UTC
                     host:
-                      id: 95
-                      avatar:
-                      created_at: 2022-11-22 09:52:12 UTC
-                      email: shanel@herzog.com
-                      name: Salvador Mueller
-                      updated_at: 2022-11-22 09:52:12 UTC
+                      id: 13
+                      avatar: 
+                      created_at: 2022-11-22 10:14:25 UTC
+                      email: loise_brekke@kautzer-ritchie.co
+                      name: Rev. Olen Macejkovic
+                      updated_at: 2022-11-22 10:14:25 UTC
                     location: MyString
                     name: MyString
                     photos: []
                     price: MyString
-                    rating:
-                    updated_at: 2022-11-22 09:52:12 UTC
+                    rating: 
+                    updated_at: 2022-11-22 10:14:25 UTC
                   summary: Место получено
         '404':
           description: Место не найден
