@@ -12,24 +12,24 @@ ___
 A simple example of Airbnb
 
 * ### There are 10 cards on the main page
-![MainPage]('')
+![MainPage](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/main-page.png)
 
 ___If you click on the button, the following photos will be loaded___
 
 * ### Each card contains several photos that you can flip through
 
-![Card]('')
+![Card](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/card.png)
 * ### You can open the stay by clicking on the card
 
-![Stay]('')
+![Stay](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/stay.png)
 * ### The page has a search by cards
 
-![Search]('')
+![Search](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/search.png)
 * ### You can register or login
 
-![LoginOrSignUp]('')
+![Login](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/login.png) ![SignUp](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/sign-up.png)
 * ### Validation
-![Validate]('')
+![Validate](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/validate.png)
 * ### As a storage for token plagin vue-cookies is used
 ___
 ## In project uses REST API:
