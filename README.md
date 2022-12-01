@@ -12,24 +12,24 @@
 A simple example of Airbnb
 
 * ### There are 10 cards on the main page
-![MainPage](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/main-page.png)
+![MainPage](https://github.com/Eelllllyy/airbnb-clone/blob/develop/app/assets/images/main-page.png)
 
 ___If you click on the button, the following photos will be loaded___
 
 * ### Each card contains several photos that you can flip through
 
-![Card](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/card.png)
+![Card](https://github.com/Eelllllyy/airbnb-clone/blob/develop/app/assets/images/card.png)
 * ### You can open the stay by clicking on the card
 
-![Stay](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/stay.png)
+![Stay](https://github.com/Eelllllyy/airbnb-clone/blob/develop/app/assets/images/stay.png)
 * ### The page has a search by cards
 
-![Search](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/search.png)
+![Search](https://github.com/Eelllllyy/airbnb-clone/blob/develop/app/assets/images/search.png)
 * ### You can register or login
 
-![Login](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/login.png) ![SignUp](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/sign-up.png)
+![Login](https://github.com/Eelllllyy/airbnb-clone/blob/develop/app/assets/images/login.png) ![SignUp](https://github.com/Eelllllyy/airbnb-clone/blob/develop/app/assets/images/sign-up.png)
 * ### Validation
-![Validate](https://github.com/TailsSavarin/airbnb-clone/blob/front-feature-02-auth/app/assets/images/validate.png)
+![Validate](https://github.com/Eelllllyy/airbnb-clone/blob/develop/app/assets/images/validate.png)
 * ### As a storage for token plagin vue-cookies is used
 ___
 ## In project uses REST API:
@@ -46,7 +46,6 @@ ___
 
     #DELETE /api/client/session
 ___
-###### by Elina Rezenkova
 _Creation date:_
 >30 / 11 / 2022
 
